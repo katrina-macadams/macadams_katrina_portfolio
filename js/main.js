@@ -1,0 +1,7 @@
+console.log ("JS IS RUNNING")
+
+// VARIABLES
+
+// FUNCTIONS
+
+// EVENT LISTENERS
