@@ -1,5 +1,7 @@
 /* GENERAL */
-
+img, embed, object, video, picture {
+    max-width: 100%; 
+  }
 /* BOX MODEL   */
   
 /* CSS RESET */
@@ -226,4 +228,5 @@
      .xl-col-end-12	{grid-column-end: 12;}
      .xl-col-end-13	{grid-column-end: 13;}
      .xl-col-end-auto	{grid-column-end: auto;}
-  }
+  
+
