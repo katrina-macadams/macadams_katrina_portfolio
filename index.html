@@ -57,28 +57,39 @@
 
         <section id="contact">
             <h2>Begin Your Story Today
-                <form action="">
-                    <div id="f-name" class="f-box">
-                        <label for=""></label>
+                <form action="#" method="post" enctype="text/plain" class="grid-con col-span-full">
+                    <div id="f-name" class="f-box col-span-2">
+                        <label for="name"></label>
                         <input type="text">
                     </div>
                 
-                    <div id="l-name" class="f-box">
-                        <label for=""></label>
+                    <div id="l-name" class="f-box col-start-1 col-span-2">
+                        <label for="name"></label>
                         <input type="text">
                     </div>
 
-                    <div id="e-mail" class="f-box">
+                    <div id="message" class="f-box col-start-3 col-span-2">
                         <label for=""></label>
-                        <input type="text">
+                        <textarea name="user_message" id="msg"></textarea>
                     </div>
 
-                    <div id="message" class="f-box">
-                        <label for=""></label>
-                        <textarea name="" id=""></textarea>
+                    <div id="e-mail" class="f-box col-span-3">
+                        <label for="mail"></label>
+                        <input type="email">
                     </div>
+
+                    <div class="button col-start-3 col-span-2">
+                        <input id="submit" type="button" value="Send">
+                    </div>
+
                 </form>
             </h2>
+        </section>
+
+        <section>
+            <div class="col-start-2 col-span-1"><link rel="stylesheet" href="" class="contact-link">LinkedIn</link></div>
+            <p class="col-start-3 col-span-1">•</p>
+            <div class="col-start-4 col-span-1"><link rel="stylesheet" href="" class="contact-link">GitHub</link></div>
         </section>
 
     </main>
