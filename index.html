@@ -8,27 +8,79 @@
     <link href="css/grid.css" rel="stylesheet">
     <title>Portfolio</title>
 </head>
-<body class="grid-con">
+<body>
 
-    <header id="main-header">
-        <img src="images/invert_logo.svg" alt="girl sitting on moon looking at star icon">
+    <header id="main-header" class="grid-con">
+        <img class="col-span-1" src="images/invert_logo.svg" alt="girl sitting on moon looking at star icon">
         <h2 class="hidden">Main Navigation</h2>
-            <nav id="main-nav">
-                <ul>
-                    <li>About</li>
-                    <li>Case Studies</li>
-                    <li>Contact</li>
-                </ul>
-            </nav>
+            <nav id="main-nav" class="col-start-4">
+                <button id="button"></button>
+                <div id="burger-con">
+                    <ul>
+                        <li>About</li>
+                        <li>Case Studies</li>
+                        <li>Contact</li>
+                    </ul>
+                </nav>
+            </div>
         </img>
 
-        <section id="hero" class="grid-con">
-            <h1>Welcome</h1>
-                <h2>Some kind of subtitle</h2>
+        <section id="hero" class="grid-con col-span-full">
+            <h1 class="col-start-2 col-span-2">Welcome</h1>
+                <h2 class="col-start-2 col-span-2">Some kind of subtitle</h2>
         </section>
     </header>
+
     <main>
-        section.carousal>img
+        
+        <section class="carousal-sec col-span-full">
+                <ul class="col-span-full grid-con">
+                    <li class="col-start-1 col-span-1"><a href="link">All Project</a></li>
+                    <li class="col-start-2 col-span-1"><a href="link">Project 1</a></li>
+                    <li class="col-start-3 col-span-1"><a href="link">Project 2</a></li>
+                    <li class="col-start-4 col-span-1"><a href="link">Project 3</a></li>
+
+            </nav>
+            <img src="images/" alt="carousal image">
+        </section>
+
+        <section id="about" class="col-span-full grid-con">
+            <h2 class="col-start-2 col-span-2">About Me</h2>
+            <p class="col-span-4">I'm Katrina MacAdams, a passionate web developer with a flair for motion design. I specialize in creating immersive, dynamic web experiences that bring together seamless functionality and captivating visual storytelling...</p>
+        </section>
+
+        <section id="video-player" class="col-span-4">
+            <video controls preload="metadata">
+                <source src="video/.mp4" type="video/mp4">
+            </video>
+        </section>
+
+        <section id="contact">
+            <h2>Begin Your Story Today
+                <form action="">
+                    <div id="f-name" class="f-box">
+                        <label for=""></label>
+                        <input type="text">
+                    </div>
+                
+                    <div id="l-name" class="f-box">
+                        <label for=""></label>
+                        <input type="text">
+                    </div>
+
+                    <div id="e-mail" class="f-box">
+                        <label for=""></label>
+                        <input type="text">
+                    </div>
+
+                    <div id="message" class="f-box">
+                        <label for=""></label>
+                        <textarea name="" id=""></textarea>
+                    </div>
+                </form>
+            </h2>
+        </section>
+
     </main>
     <footer></footer>
 </body>

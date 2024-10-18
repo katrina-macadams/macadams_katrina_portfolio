@@ -1,2 +1,10 @@
 @forward 'casestudy';
 
+<<<<<<< Updated upstream
+=======
+@use '../abstracts/variables' as v;
+
+body {
+    background-color: v.$blue; 
+}
+>>>>>>> Stashed changes
