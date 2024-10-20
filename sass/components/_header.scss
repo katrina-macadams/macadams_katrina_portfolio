@@ -15,28 +15,26 @@ a {
     text-decoration: none;
 }
 
-// .main-nav {
-//     min-height: 60px;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     padding: 0 24px;
-// }
+// NAVIGATION 
 
-// .nav-menu {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     gap: 60px;
-// }
+.main-nav {
+    min-height: 60px;
+    align-items: center;
+    padding: 0 24px;
 
-// .nav-link {
-//     transition: 0.8s ease;
-// }
+}
 
-// .nav-link:hover {
-//     color: a.$white;
-// }
+.nav-menu {
+    align-items: center;
+}
+
+.nav-link {
+    transition: 0.8s ease;
+}
+
+.nav-link:hover {
+    color: a.$white;
+}
 
 #burger-con {
     margin-top: 20px;
@@ -71,4 +69,6 @@ a {
  #main-nav input:checked ~ #burger-con {
     display: block;
  }
+
+ 
  

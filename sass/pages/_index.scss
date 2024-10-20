@@ -3,7 +3,60 @@
 @use '../abstracts/variables' as v;
 
 body {
-    background-color: v.$blue; 
+    background-image: url(../../images/blur-bckground.jpg);
 }
 
+#hero {
+    margin-top: 90px;
+    margin-bottom: 60px;
+}
 
+#hero h1 {
+    margin: 28px 0px;
+}
+
+#hero h2 {
+    margin-bottom: 90px;
+}
+
+.carousal-sec {
+    margin-top: 90px;
+    font-size: 16px;
+}
+
+.carousal-placeholder {
+    background-color: v.$black;
+    width: 744px;
+    height: 291px;
+    margin-bottom: 90px ;
+}
+
+#about h2 {
+    margin-top: 90px;
+    margin-bottom: 28px;
+}
+
+#about p {
+    margin-bottom: 120px;
+}
+
+#video-player {
+    margin-top: 60px;
+    margin-bottom: 120px;
+}
+
+#contact {
+    margin-top: 60px;
+    margin-bottom: 120px;
+}
+
+#case-study-tab {
+    background-color: v.$white;
+    width: 744px;
+    height: 82px;
+    color: v.$black;
+}
+
+#case-study-tab h3 {
+    margin-top: 28px;
+}

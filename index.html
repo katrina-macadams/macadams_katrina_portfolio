@@ -11,7 +11,7 @@
 <body>
 
     <header id="main-header" class="grid-con">
-        <img class="col-span-1" src="images/invert_logo.svg" alt="girl sitting on moon looking at star icon">
+        <img class="col-span-1" src="images/invert_logo.svg" alt="girl sitting on moon looking at star icon"></img>
         <h2 class="hidden">Main Navigation</h2>
             <nav id="main-nav" class="col-start-4">
                 <button id="burger-button"></button>
@@ -22,12 +22,11 @@
                         <li class="nav-link col-start-3 col-span-1"><a href="#">Contact</a></li>
                     </ul>
             </nav>
-                </div>
-        </img>
+        </div>
 
         <section id="hero" class="grid-con col-span-full">
-            <h1 class="col-start-2 col-span-2">Welcome</h1>
-                <h2 class="col-start-2 col-span-2">Some kind of subtitle</h2>
+            <h1 class="col-start-2 col-span-2 m-col-start-5 m-col-span-3 l-col-start-6 l-col-span-3">Welcome</h1>
+                <h2 class="col-start-2 col-span-2 m-col-start-5 m-col-span-3 l-col-start-6 l-col-span-3">Some kind of subtitle</h2>
         </section>
     </header>
 
@@ -35,62 +34,68 @@
         
         <section class="carousal-sec col-span-full">
                 <ul class="col-span-full grid-con">
-                    <li class="col-start-1 col-span-1"><a href="#">All Project</a></li>
-                    <li class="col-start-2 col-span-1"><a href="#">Project 1</a></li>
-                    <li class="col-start-3 col-span-1"><a href="#">Project 2</a></li>
-                    <li class="col-start-4 col-span-1"><a href="#">Project 3</a></li>
+                    <li class="col-span-1 m-col-span-2 l-col-span-1"><a href="#">All Projects</a></li>
+                    <li class="col-start-2 col-span-1 m-col-start-4 m-col-span-2 l-col-start-2 l-col-span-1"><a href="#">Project 1</a></li>
+                    <li class="col-start-3 col-span-1 m-col-start-6 m-col-span-2 l-col-start-3 l-col-span-1"><a href="#">Project 2</a></li>
+                    <li class="col-start-4 col-span-1  m-col-start-8 m-col-span-2 l-col-start-4 l-col-span-1"><a href="#">Project 3</a></li>
                 </ul>
             </nav>
-            <img src="images/" alt="carousal image">
+            <div class="carousal-placeholder col-span-full">
+                <h2>Carousal Placeholder</h2>
+            </div>
         </section>
 
         <section id="about" class="col-span-full grid-con">
-            <h2 class="col-start-2 col-span-2">About Me</h2>
-            <p class="col-span-4">I'm Katrina MacAdams, a passionate web developer with a flair for motion design. I specialize in creating immersive, dynamic web experiences that bring together seamless functionality and captivating visual storytelling...</p>
+            <h2 class="col-span-full">About Me</h2>
+            <p class="col-span-3 m-col-span-8">I'm Katrina MacAdams, a passionate web developer with a flair for motion design. I specialize in creating immersive, dynamic web experiences that bring together seamless functionality and captivating visual storytelling...</p>
         </section>
 
-        <section id="video-player" class="col-span-4">
-            <video controls preload="metadata">
+        <section class="col-span-full grid-con">
+            <video id="video-player" class="col-start-2 col-span-2" controls preload="metadata">
                 <source src="video/.mp4" type="video/mp4">
             </video>
         </section>
 
-        <section id="contact">
-            <h2>Begin Your Story Today
-                <form action="#" method="post" enctype="text/plain" class="grid-con col-span-full">
-                    <div id="f-name" class="f-box col-span-2">
-                        <label for="name"></label>
+        <section id="contact" class="col-span-full grid-con">
+            <h2 class="col-start-2 col-span-2 m-col-start-5 m-col-span-4">Begin Your Story Today</h2>
+                <form action="#" method="post" enctype="text/plain" class="col-span-full grid-con">
+
+                    <div id="f-name" class="f-box col-span-2 m-col-span-6">
+                        <label for="name">FIRST NAME</label>
                         <input type="text">
+                    </div>
+
+                    <div id="message" class="f-box col-start-3 col-span-2 m-col-start-7 m-col-span-6">
+                        <label for="message">MESSAGE</label>
+                        <textarea id="message" rows="8"></textarea>
                     </div>
                 
-                    <div id="l-name" class="f-box col-start-1 col-span-2">
-                        <label for="name"></label>
+                    <div id="l-name" class="f-box col-start-1 col-span-2 m-col-span-6">
+                        <label for="name">LAST NAME</label>
                         <input type="text">
                     </div>
 
-                    <div id="message" class="f-box col-start-3 col-span-2">
-                        <label for=""></label>
-                        <textarea name="user_message" id="msg"></textarea>
-                    </div>
-
-                    <div id="e-mail" class="f-box col-span-3">
-                        <label for="mail"></label>
+                    <div id="e-mail" class="f-box col-span-3 m-col-span-6">
+                        <label for="mail">E-MAIL</label>
                         <input type="email">
                     </div>
 
-                    <div class="button col-start-3 col-span-2">
+                    <div class="button col-start-4 col-span-1 m-col-start-7 m-col-span-2">
                         <input id="submit" type="button" value="Send">
                     </div>
 
                 </form>
-            </h2>
         </section>
 
-        <section>
+        <section class="col-span-full">
             <div class="col-start-2 col-span-1"><link rel="stylesheet" href="" class="contact-link">LinkedIn</link></div>
             <p class="col-start-3 col-span-1">•</p>
             <div class="col-start-4 col-span-1"><link rel="stylesheet" href="" class="contact-link">GitHub</link></div>
         </section>
+
+    <div class="col-span-full grid-con" id="case-study-tab">
+        <h3 class="col-start-2">Case Study</h2>
+    </div>
 
     </main>
     <footer></footer>
