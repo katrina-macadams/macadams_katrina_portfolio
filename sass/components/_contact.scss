@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as v;
+
+.f-box {
+    margin-bottom: 30px;
+}
+
+input, textarea {
+    width: 100%;
+    outline: 0px;
+    border: 1px solid v.$white;
+    background: transparent;
+    font-size: 20px;
+}
+
+form {
+    width: 90%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+form label {
+    display: inline-block;
+    text-align: right;
+  }
+  
+  
+  #message {
+    vertical-align: top;
+    height: 20px;
+  }
