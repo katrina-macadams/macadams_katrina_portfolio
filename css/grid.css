@@ -55,6 +55,7 @@ img, embed, object, video, picture {
   .col-end-auto	{grid-column-end: auto;}
   
 /* TABLET */
+
   
   @media screen and (min-width: 744px) { 
      
@@ -110,6 +111,12 @@ img, embed, object, video, picture {
      .m-col-end-12	{grid-column-end: 12;}
      .m-col-end-13	{grid-column-end: 13;}
      .m-col-end-auto	{grid-column-end: auto;}
+  
+/* Nav */
+ 
+ #hamburger {
+   display: none;
+  }
   
   }
   
@@ -229,4 +236,4 @@ img, embed, object, video, picture {
      .xl-col-end-13	{grid-column-end: 13;}
      .xl-col-end-auto	{grid-column-end: auto;}
   
-
+   }
