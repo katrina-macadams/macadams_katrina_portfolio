@@ -114,8 +114,12 @@ img, embed, object, video, picture {
   
 /* Nav */
  
- #hamburger {
+ #burger-button {
    display: none;
+  }
+
+  #burger-con {
+   display: block;
   }
   
   }
