@@ -183,7 +183,7 @@ img, embed, object, video, picture {
   }
   
 
-  /* EXTRA LARGE DESKTOP */
+  /* EXTRA LARGE DESKTOP (Will get to it)
 
   @media screen and (min-width: 1920px) { 
   
@@ -240,4 +240,4 @@ img, embed, object, video, picture {
      .xl-col-end-13	{grid-column-end: 13;}
      .xl-col-end-auto	{grid-column-end: auto;}
   
-   }
+   } */

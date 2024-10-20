@@ -2,6 +2,8 @@ console.log ("JS IS RUNNING")
 
 // VARIABLES
 
+const player = new Plyr('video'); 
+
 // FUNCTIONS
 
 let burgerButton = document.querySelector("#burger-button");

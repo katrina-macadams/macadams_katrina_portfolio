@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/grid.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
     <title>Portfolio</title>
 </head>
 <body>
@@ -33,6 +34,7 @@
     <main>
         
         <section class="carousal-sec col-span-full">
+            <h2 class="hidden">Carousal</h2>
                 <ul class="col-span-full grid-con">
                     <li class="col-span-1 m-col-span-2 l-col-span-1"><a href="#">All Projects</a></li>
                     <li class="col-start-2 col-span-1 m-col-start-4 m-col-span-2 l-col-start-2 l-col-span-1"><a href="#">Project 1</a></li>
@@ -50,10 +52,14 @@
             <p class="col-span-3 m-col-span-8">I'm Katrina MacAdams, a passionate web developer with a flair for motion design. I specialize in creating immersive, dynamic web experiences that bring together seamless functionality and captivating visual storytelling...</p>
         </section>
 
-        <section class="col-span-full grid-con">
-            <video id="video-player" class="col-start-2 col-span-2" controls preload="metadata">
-                <source src="video/.mp4" type="video/mp4">
-            </video>
+        <section class="grid-con">
+            <h2 class="hidden">Video Section</h2>
+            <div id="video-player" class="col-span-full m-col-span-full l-col-span-full">
+                <video controls preload="metadata">
+                    <source src="videos/3d-book-placeholder.mp4" type="video/mp4">
+                    <!-- https://youtu.be/hPcj87uITnU?si=R0OCavgx1N-L_LKZ placeholder used -->
+                </video>
+            </div>
         </section>
 
         <section id="contact" class="col-span-full grid-con">
@@ -97,4 +103,5 @@
     <footer></footer>
 </body>
 </html>
+<script src="https://cdn.plyr.io/3.7.8/plyr.js"></script> 
 <script src="js/main.js"></script>
