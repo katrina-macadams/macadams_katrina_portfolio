@@ -1,7 +1,8 @@
 @use '../abstracts/variables' as v;
 
 body {
-    background-image: url(../images/port_background.jpg);
+    background-image: url(../images/portfoliobackground.jpg);
+    background-size: cover;
 }
 
 #hero {
