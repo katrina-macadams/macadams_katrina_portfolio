@@ -1,16 +1,38 @@
 @use '../abstracts/variables' as v;
 
 .f-box {
-    margin-bottom: 30px;
+ margin: 0px 8px 8px 8px;
+
 }
 
 input, textarea {
     width: 100%;
     outline: 0px;
-    border: 1px solid v.$white;
+    border: 1.5px solid v.$purple;
     background: transparent;
-    font-size: 20px;
+    padding: 8px;
 }
+
+input::placeholder,  textarea::placeholder {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 600px;
+}
+
+input[type=button] {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Julius Sans One", sans-serif;
+  cursor: pointer;
+}
+
+input[type=button]:hover {
+  background: rgb(73,149,242);
+  background: linear-gradient(90deg, rgba(73,149,242,1) 0%, rgba(198,129,255,1) 100%);
+  transition: background 2s ease-in;
+}
+
 
 form {
     width: 90%;

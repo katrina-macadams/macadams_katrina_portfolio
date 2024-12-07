@@ -143,6 +143,8 @@
             </div>
         </section>
 
+
+        <!-- ABOUT -->
         <section id="about" class="grid-con">
             <h2 class="col-span-full">About Me</h2>
             <p class="col-span-full m-col-span-8" id="about-content">
@@ -161,6 +163,7 @@
             </div>
         </div>
 
+        <!-- VIDEO -->
             <h2 class="hidden">Video Section</h2>
             <div id="video-player" class="col-span-full m-col-span-full l-col-span-full">
                 <video controls preload="metadata">
@@ -171,36 +174,34 @@
             </div>
         </section>
 
-        <section id="contact" class="col-span-full grid-con">
-            <h3 class="col-start-2 col-span-full m-col-start-5 m-col-span-4">Begin Your Story Today</h3>
+        <!-- CONTACT -->
+        <section id="contact" class="grid-con">
+            <h2 class="col-start-2 col-span-full m-col-start-5 m-col-span-4">Begin Your Story Today</h2>
                 <form action="#" method="post" enctype="text/plain" class="col-span-full grid-con">
-
-                    <div id="f-name" class="f-box col-span-2 m-col-span-6">
-                        <label for="name">FIRST NAME</label>
-                        <input type="text">
+                <div class="col-span-2">
+                    <div id="f-name" class="f-box col-span-full m-col-span-6">
+                        <label for="name"></label>
+                        <input placeholder="FIRST NAME*" type="text">
                     </div>
-
-                    <div id="l-name" class="f-box col-start-1 col-span-2 m-col-span-6">
-                        <label for="name">LAST NAME</label>
-                        <input type="text">
+        
+                    <div id="l-name" class="f-box col-start-1 col-span-full m-col-span-6">
+                        <label for="name"></label>
+                        <input placeholder="LAST NAME*"  type="text">
                     </div>
-
+                    <div id="e-mail" class="f-box col-span-full m-col-start-1 m-col-span-6">
+                        <label for="mail"></label>
+                        <input placeholder="EMAIL*"  type="email">
+                    </div>
+    
+                </div>
                     <div class="f-box col-start-3 col-span-2 m-col-start-7 m-col-span-6">
-                        <label for="message">MESSAGE</label>
-                        <textarea id="message" rows="8"></textarea>
-                    </div>
-                
-
-                    <div id="e-mail" class="f-box col-span-2 m-col-start-1 m-col-span-6">
-                        <label for="mail">E-MAIL</label>
-                        <input type="email">
+                        <label for="message"></label>
+                        <textarea placeholder="MESSAGE"  id="message" rows="2"></textarea>
                     </div>
 
-
-                    <div class="button col-start-3 col-span-2 m-col-start-7 m-col-span-2">
-                        <input id="submit" type="button" value="Send">
+                    <div class="button col-start-3 col-span-1 m-col-start-7 m-col-span-2">
+                        <input type="button" value="Send">
                     </div>
-
                 </form>
         </section>
 
