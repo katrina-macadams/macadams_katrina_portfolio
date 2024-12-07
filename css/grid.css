@@ -2,14 +2,22 @@
 img, embed, object, video, picture {
     max-width: 100%; 
   }
-/* BOX MODEL   */
-  
+
+  body { 
+   box-sizing: border-box;
+  }
 /* CSS RESET */
+
+
+html, body {
+   overflow-x: hidden; /* Prevent horizontal scrolling */
+}
   
   body, p, h1, h2, h3, h4, h5 {
      margin: 0px; 
      padding: 0px;
   }
+
   
  /* UTLITY  */
   
@@ -28,10 +36,8 @@ img, embed, object, video, picture {
      display: grid;
      grid-template-columns: repeat(4, minmax(0, 1fr));
      column-gap: 20px;
-     max-width: 1920px;
-     margin: 0 auto;
-     padding-left: 14px;
-     padding-right: 14px;
+     max-width: 1920px; 
+     grid-gap: 0.5rem;
   }
   
   .col-auto {grid-column: auto;}
