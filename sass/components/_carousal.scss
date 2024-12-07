@@ -1,0 +1,39 @@
+@use '../abstracts/variables' as v; 
+
+.car-links {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.carousal-sec {
+    margin-top: 48px;
+    font-size: 16px;
+    margin-bottom: 64px;
+    overflow: hidden;
+}
+
+.carousal {
+    background-color: v.$black;
+    height: auto;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.images-slide img {
+    height: 164px;
+}
+
+.images-slide {
+    animation: 15s slide infinite linear;
+    display: inline-block; 
+}
+
+
+
+@keyframes slide {
+    from {
+        transform: translateX(0)
+    }
+    to {transform: translateX(-100%)}
+}
+
