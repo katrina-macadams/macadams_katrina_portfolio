@@ -1,0 +1,18 @@
+#video {
+    width:fit-content;
+}
+
+:root {
+    --plyr-color-main: #ffff;
+    --plyr-control-icon-size: 16px;
+    --plyr-control-radius: 8px;
+    --plyr-control-spacing: 12px;
+    --plyr-video-control-color: white;
+    --plyr-video-control-background-hover: #FF87D5; 
+    --plyr-font-family: "Nunito", sans-serif;
+  }
+
+  #video-player {
+    margin-top: 60px;
+    margin-bottom: 120px;
+}

@@ -5,6 +5,11 @@ header {
     background: linear-gradient(180deg, rgba(0,0,0,0.9995185574229691) 15%, rgba(2,0,36,0.6) 65%, rgba(4,0,71,0.2) 100%);
 }
 
+#logo {
+    height: 85px;
+    width: 75px;
+}
+
 li {
     list-style-type: none;
     font-size: a.$li-font-size;
@@ -75,6 +80,10 @@ input[type="checkbox"] {
     color: a.$white;
 }
 
+#burger-con {
+    margin-right: 24px;
+
+}
 
 
  
