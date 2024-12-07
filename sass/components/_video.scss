@@ -3,16 +3,19 @@
 }
 
 :root {
-    --plyr-color-main: #ffff;
+    --plyr-color-main: #FF87D5;
     --plyr-control-icon-size: 16px;
     --plyr-control-radius: 8px;
     --plyr-control-spacing: 12px;
     --plyr-video-control-color: white;
-    --plyr-video-control-background-hover: #FF87D5; 
+    --plyr-video-control-background-hover: #ff87d5ef; 
     --plyr-font-family: "Nunito", sans-serif;
   }
 
+
+
   #video-player {
-    margin-top: 60px;
-    margin-bottom: 120px;
+    border: #FF87D5 solid 0.5px;
+    margin: 98px 28px; 
+
 }
