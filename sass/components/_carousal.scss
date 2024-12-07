@@ -1,12 +1,15 @@
 @use '../abstracts/variables' as v; 
 
-.car-links {
+.car-links a {
     font-weight: 600;
-    margin-bottom: 4px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.car-links a:hover {
+    color: white;
 }
 
 .carousal-sec {
-    margin-top: 48px;
     font-size: 16px;
     margin-bottom: 64px;
     overflow: hidden;

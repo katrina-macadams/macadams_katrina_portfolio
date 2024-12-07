@@ -6,11 +6,6 @@ body {
 }
 
 
-#video-player {
-    margin-top: 60px;
-    margin-bottom: 120px;
-}
-
 #contact {
     margin-top: 60px;
     margin-bottom: 120px;
@@ -27,13 +22,3 @@ body {
     margin-top: 28px;
 }
 
-#video {
-    width:fit-content;
-}
-
-:root {
-    --plyr-color-main: #ffacf0;
-    --plyr-control-icon-size: 28px;
-    --plyr-control-radius: 8px;
-    --plyr-control-spacing: 12px;
-  }
