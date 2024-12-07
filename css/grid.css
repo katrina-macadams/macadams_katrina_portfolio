@@ -9,10 +9,6 @@ img, embed, object, video, picture {
 /* CSS RESET */
 
 
-html, body {
-   overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-  
   body, p, h1, h2, h3, h4, h5 {
      margin: 0px; 
      padding: 0px;
