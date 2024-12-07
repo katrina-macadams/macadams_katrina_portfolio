@@ -1,0 +1,8 @@
+<svg width="101" height="86" viewBox="0 0 101 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="portal">
+<path id="line3" d="M2 73L42 73" stroke="white" stroke-width="4" stroke-linecap="round"/>
+<path id="line2" d="M12 59L42 59" stroke="white" stroke-width="4" stroke-linecap="round"/>
+<path id="line1" d="M27 44L42 44" stroke="white" stroke-width="4" stroke-linecap="round"/>
+<path id="arc" d="M56 84V27C56 27 56 2 77.5 2C99 2 99 27 99 27V84H56Z" stroke="white" stroke-width="3" stroke-linecap="square"/>
+</g>
+</svg>

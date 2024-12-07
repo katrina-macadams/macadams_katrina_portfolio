@@ -18,13 +18,30 @@
         <img class="col-span-1" src="images/invert_logo.svg" alt="girl sitting on moon looking at star icon">
         <h2 class="hidden">Main Navigation</h2>
             <nav id="main-nav" class="col-start-4">
-                <button id="burger-button"></button>
-                <div id="burger-con"></div>
+                <label class="checkbox">
+                    <input type="checkbox" id="toggleCheckbox">
+                    <svg width="60" height="60" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path id="line7" d="M2 73H58" stroke="white" stroke-width="4" stroke-linecap="round" />
+                      <path id="line6" d="M2 59H58" stroke="white" stroke-width="4" stroke-linecap="round" />
+                      <path id="line5" d="M2 44H58" stroke="white" stroke-width="4" stroke-linecap="round" />
+                      <path id="darc" d="M2 27C2 27 14.6452 2 30 2C45.3548 2 58 27 58 27" stroke="white" stroke-width="4" stroke-linecap="round" />
+                    </svg>
+                    <svg class="checked" width="101" height="4" viewBox="0 0 101 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g id="portal">
+                        <path id="line3" d="M2 73L42 73" stroke="white" stroke-width="4" stroke-linecap="round" />
+                        <path id="line2" d="M12 59L42 59" stroke="white" stroke-width="4" stroke-linecap="round" />
+                        <path id="line1" d="M27 44L42 44" stroke="white" stroke-width="4" stroke-linecap="round" />
+                        <path id="arc" d="M56 84V27C56 27 56 2 77.5 2C99 2 99 27 99 27V84H56Z" stroke="white" stroke-width="3" stroke-linecap="square" />
+                      </g>
+                    </svg>
+                  </label>
+                <div id="burger-con">
                     <ul class="nav-menu">
                         <li class="nav-link m-col-start-1 col-span-1"><a href="#">About</a></li>
                         <li class="nav-link col-start-2 col-span-1"><a href="#">Case Studies</a></li>
                         <li class="nav-link col-start-3 col-span-1"><a href="#">Contact</a></li>
                     </ul>
+                </div>
             </nav>
 
         <section id="hero" class="grid-con col-span-full">
@@ -103,7 +120,11 @@
 
     </main>
     <footer></footer>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script> 
+    <script src="js/gsap.min.js"></script>
+    <script src="js/MorphSVGPlugin.min.js"></script>
+    <script src="js/main.js"></script>
+
 </body>
 </html>
-<script src="https://cdn.plyr.io/3.7.8/plyr.js"></script> 
-<script src="js/main.js"></script>
+
