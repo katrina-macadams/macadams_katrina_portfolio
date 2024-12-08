@@ -60,5 +60,33 @@ overlay.addEventListener("click", (e) => {
     }
 });
 
+const toggleModal = document.querySelector(".toggle");
+const bottomSheet = document.querySelector(".bottom-sheet");
+const sheetOverlay = document.querySelector(".sheet-overlay");
+
+
+const showBottomSheet = () => {
+  bottomSheet.classList.add("show");
+}
+
+const hideBottomSheet = () => {
+  bottomSheet.classList.remove("show");
+  console.log("show overlay clicked")
+}
+
+toggleModal.addEventListener("click", showBottomSheet);
+sheetOverlay.addEventListener("click",hideBottomSheet);
+
+
+const blink = document.getElementById("blink");
+
+
+function toggleFade() {
+    blink.classList.toggle("fade");
+}
+
+
+setInterval(toggleFade, 900);
+
 const player = new Plyr('video'); 
 
