@@ -1,30 +1,76 @@
 <?php
-// connect to portfolio database
-require_once('includes/connect.php');
 
-// gather elements from the submitted form
+require_once('connect.php');
 
+///gather the form content
 $fname = $_POST['first_name'];
 $lname = $_POST['last_name'];
 $email = $_POST['email'];
-$message = $_POST['message'];
+$msg = $_POST['messages'];
 
-// check form items for errors
+$errors = [];
+
+//validate and clean these values
 
 $fname = trim($fname);
 $lname = trim($lname);
 $email = trim($email);
-$message = trim($message);
-// trims special characters and stuff
+$msg = trim($msg);
 
-// insert new row in the contacts table
+if(empty($lname)) {
+    $errors['last_name'] = 'Last Name cant be empty';
+}
 
-$query = "INSERT INTO contact_form (id, fname, lname, email, message) VALUES (NULL,'".$fname."','".$lname."','".$email."','".$message."')";
+if(empty($fname)) {
+    $errors['first_name'] = 'First Name cant be empty';
+}
 
-mysqli_query($connect,$query);
+if(empty($msg)) {
+    $errors['message'] = 'Message field cant be empty';
+}
 
-header('Location: contact.php');
+if(empty($email)) {
+    $errors['email'] = 'You must provide an email';
+} else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors['legit_email'] = 'You must provide a valid email';
+}
 
-// format an email and email it to myself
+if(empty($errors)) {
+
+ 
+
+    $query = "INSERT INTO contacts (last_name,first_name, email, comments) VALUES('.$lname.','.$fname.','.$email.','.$msg.')";
+
+    if(mysqli_query($connect, $query)) {
+
+
+
+$to = 'katrinamacadams@proton.me';
+$subject = 'Message from your Portfolio site!';
+
+$message = "You have received a new contact form submission:\n\n";
+$message .= "Name: ".$fname." ".$lname."\n";
+$message .= "Email: ".$email."\n\n";
+
+
+mail($to,$subject,$message);
+
+header('Location: thank_you.php');
+
+}else{
+    for($i=0; $i < count($errors); $i++) {
+        echo $errors[$i].'<br>';
+    }
+}
+
+
+
+
+
+
+
+
+}
+
 
 ?>

@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+require_once('includes/connect.php');
+
+$query = 'SELECT * FROM projects, media WHERE project_id = projects.id';
+
+$results = mysqli_query($connect,$query);
+?>
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
     <title>Case Study</title>
+    
 </head>
 <body>
  <!-- HEADER -->
@@ -53,7 +63,8 @@
   <main>
     <section id="challenge" class="case-sec">
       <h2>The Challenge Awaits</h2>
-      <p>What if the long forgotten brand, Orbitz, was given an update? A brand that left consumers feeling a little weird, but in a good way this time. Bring out the nostalgia of the old drink, by combining it’s space theme with a modern redesign.</p>
+      <p><?php echo $row['description']?></p>
+      
       <span>_______</span>
     </section>
 
@@ -74,7 +85,7 @@
     </section>
 
    <section class="case-images">
-    <img src="images/orb-space.jpg">
+    <img src="images/orb-2space.jpg">
   </section>
 
   <section id="conflict" class="case-plot-l">
@@ -242,7 +253,9 @@
                             <div id="studies">
                                 <h2>Case Studies</h2>
                                 <ul>
-                                    <li><a href="">Medvsa</a></li>
+                                <li><a href="case-study.php?id=1">Medvsa</a></li>
+                                <li><a href="case-study.php?id=2">Kevorka</a></li>
+                                <li><a href="case-study.php?id=3">Orbitz</a></li>
                                 </ul>
                             </div>
                             <div id="tools">

@@ -17,26 +17,25 @@
 
 .carousal {
     background-color: v.$black;
-    height: auto;
-    display: flex;
-    flex-wrap: nowrap;
+    height: 264px;
 }
 
 .images-slide img {
-    height: 164px;
+    height: 264px;
 }
 
 .images-slide {
-    animation: 15s slide infinite linear;
-    display: inline-block; 
+    animation: 45s slide infinite linear;
+    display: flex;
+    flex-direction: row;
 }
 
 
 
 @keyframes slide {
     from {
-        transform: translateX(0)
+        transform: translateX(0%)
     }
-    to {transform: translateX(-100%)}
+    to {transform: translateX(-500%)}
 }
 

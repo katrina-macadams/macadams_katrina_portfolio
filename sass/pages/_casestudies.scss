@@ -22,8 +22,8 @@ main h2 {
 
 
 .case-hero {
-    padding: 0 98px 48px 48px;
-    margin-bottom: 34px;
+    padding: 0 98px 98px 48px;
+    margin-bottom: 64px;
 }
 
 #challenge {
@@ -31,14 +31,14 @@ main h2 {
 }
 
 .case-sec {
-    padding: 0 48px;
+    padding: 64px 48px;
     margin-bottom: 34px;
     text-align: center;
 }
 
 #services {
     background-color:#ffb76550;
-    padding: 48px;
+    padding: 64px 48px;
 }
 
 #challenge span {
@@ -58,9 +58,11 @@ main h2 {
 .case-plot-l {
     margin: 24px;
     text-align: left;
+    padding: 64px 12px;
 }
 
 .case-plot-r {
+    padding: 64px 12px;
     margin: 24px;
     text-align: right;
 }
