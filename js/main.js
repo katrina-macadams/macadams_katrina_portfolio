@@ -1,9 +1,10 @@
 console.log ("JS IS RUNNING");
 
+(() => {
 gsap.registerPlugin(MorphSVGPlugin);
 const checkbox = document.querySelector("#toggleCheckbox");
 
-  // Get paths for the animation
+ 
   const darc = document.querySelector("#darc");
   const line5 = document.querySelector("#line5");
   const line6 = document.querySelector("#line6");
@@ -14,7 +15,7 @@ const checkbox = document.querySelector("#toggleCheckbox");
   const line2Target = document.querySelector("#line2");
   const line3Target = document.querySelector("#line3");
 
-  // Add event listener to checkbox
+
   checkbox.addEventListener("change", (e) => {
     if (checkbox.checked) {
       // Morph to portal
@@ -40,7 +41,9 @@ const checkbox = document.querySelector("#toggleCheckbox");
     }
 });
 
+})();
 
+(() => {
 const aboutSection = document.querySelector("#about");
 const overlay = document.querySelector("#overlay");
 const closeOverlayButton = document.querySelector("#close-overlay");
@@ -60,6 +63,9 @@ overlay.addEventListener("click", (e) => {
     }
 });
 
+})();
+
+(() => {
 const toggleModal = document.querySelector(".toggle");
 const bottomSheet = document.querySelector(".bottom-sheet");
 const sheetOverlay = document.querySelector(".sheet-overlay");
@@ -77,14 +83,16 @@ const hideBottomSheet = () => {
 toggleModal.addEventListener("click", showBottomSheet);
 sheetOverlay.addEventListener("click",hideBottomSheet);
 
+})();
 
+(() => {
 const blink = document.getElementById("blink");
 
 
 function toggleFade() {
     blink.classList.toggle("fade");
 }
-
+})();
 
 setInterval(toggleFade, 900);
 
