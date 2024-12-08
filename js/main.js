@@ -43,27 +43,7 @@ const checkbox = document.querySelector("#toggleCheckbox");
 
 })();
 
-(() => {
-const aboutSection = document.querySelector("#about");
-const overlay = document.querySelector("#overlay");
-const closeOverlayButton = document.querySelector("#close-overlay");
 
-aboutSection.addEventListener("click", () => {
-    overlay.classList.add("visible");
-});
-
-closeOverlayButton.addEventListener("click", () => {
-    overlay.classList.remove("visible");
-});
-
-
-overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) {
-        overlay.classList.remove("visible");
-    }
-});
-
-})();
 
 (() => {
 const toggleModal = document.querySelector(".toggle");
@@ -73,11 +53,11 @@ const sheetOverlay = document.querySelector(".sheet-overlay");
 
 const showBottomSheet = () => {
   bottomSheet.classList.add("show");
+  console.log("show overlay clicked")
 }
 
 const hideBottomSheet = () => {
   bottomSheet.classList.remove("show");
-  console.log("show overlay clicked")
 }
 
 toggleModal.addEventListener("click", showBottomSheet);
@@ -92,9 +72,32 @@ const blink = document.getElementById("blink");
 function toggleFade() {
     blink.classList.toggle("fade");
 }
-})();
 
 setInterval(toggleFade, 900);
+})();
+
+
 
 const player = new Plyr('video'); 
 
+(() => {
+  const aboutSection = document.querySelector("#about");
+  const overlay = document.querySelector("#overlay");
+  const closeOverlayButton = document.querySelector("#close-overlay");
+  
+  aboutSection.addEventListener("click", () => {
+      overlay.classList.add("visible");
+  });
+  
+  closeOverlayButton.addEventListener("click", () => {
+      overlay.classList.remove("visible");
+  });
+  
+  
+  overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) {
+          overlay.classList.remove("visible");
+      }
+  });
+  
+  })();
