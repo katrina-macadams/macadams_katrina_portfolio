@@ -1,0 +1,127 @@
+
+body {
+    background-color: black;
+}
+
+header {
+    background-image: url(../images/orbitz-hero.jpg);
+    background-size: cover;
+}
+
+h1 {
+    font-size: 64px;
+    font-weight: 100;
+}
+
+h4 {
+    font-weight: 300;
+}
+main h2 {
+    margin-bottom: 12px;
+}
+
+
+.case-hero {
+    padding: 0 98px 48px 48px;
+    margin-bottom: 34px;
+}
+
+#challenge {
+    margin-top: 48px;
+}
+
+.case-sec {
+    padding: 0 48px;
+    margin-bottom: 34px;
+    text-align: center;
+}
+
+#services {
+    background-color:#ffb76550;
+    padding: 48px;
+}
+
+#challenge span {
+    margin: 12px;
+}
+
+.service {
+    margin-top: 24px;
+}
+
+.case-images img {
+    width: 100%;
+    height: 355px;
+    
+}
+
+.case-plot-l {
+    margin: 24px;
+    text-align: left;
+}
+
+.case-plot-r {
+    margin: 24px;
+    text-align: right;
+}
+
+.sub-grad {
+    background: rgb(255,98,0);
+    background: linear-gradient(90deg, rgba(255,98,0,1) 0%, rgba(255,145,28,1) 50%, rgba(255,192,56,1) 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-family: "Raleway", sans-serif;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.brain-images {
+background-color: #ff620030;
+    width: 100%;
+    height: 100%;
+    transition: 1s ease;
+}
+
+.brain-images:hover {
+    background-color:#ff620000;
+}
+
+.bullet {
+    display: flex;
+    flex-direction: row;
+}
+
+#star {
+    width: 48px;
+    height: 48px;
+}
+
+
+:root {
+    --plyr-color-main: #FF911C;
+    --plyr-control-icon-size: 16px;
+    --plyr-control-radius: 8px;
+    --plyr-control-spacing: 12px;
+    --plyr-video-control-color: white;
+    --plyr-video-control-background-hover: #FF911C; 
+    --plyr-font-family: "Nunito", sans-serif;
+  }
+
+
+
+  #orb-player {
+    border: #FF6200 solid 0.5px;
+    margin: 98px 28px; 
+
+}
+
+input, textarea {
+    width: 100%;
+    outline: 0px;
+    border: 1.5px solid rgb(255, 255, 255);
+    background: transparent;
+    padding: 8px;
+}
