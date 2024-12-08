@@ -22,6 +22,19 @@
     z-index: -1;
     top: 30%;
     position: absolute;
-    height: 40;
 }
 
+@media screen and (min-width: 744px) {
+
+    #hero {
+       margin: 112px 28px 24px 28px;
+        
+    }
+
+.hero-bg {
+    z-index: -1;
+    top: 20%;
+    position: absolute;
+    height: 500px;
+}
+}

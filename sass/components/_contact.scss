@@ -13,7 +13,7 @@
 input, textarea {
     width: 100%;
     outline: 0px;
-    border: 1.5px solid v.$purple;
+    border: 1.5px solid rgba(255, 105, 185, 0.598);
     background: transparent;
     padding: 8px;
 }
@@ -35,7 +35,6 @@ input[type=button] {
 input[type=button]:hover {
   background: rgb(73,149,242);
   background: linear-gradient(90deg, rgba(73,149,242,1) 0%, rgba(198,129,255,1) 100%);
-  transition: background 2s ease-in;
 }
 
 
