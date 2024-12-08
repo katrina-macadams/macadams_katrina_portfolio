@@ -40,7 +40,7 @@ const checkbox = document.querySelector("#toggleCheckbox");
     }
 });
 
-// JavaScript to handle overlay toggle
+
 const aboutSection = document.querySelector("#about");
 const overlay = document.querySelector("#overlay");
 const closeOverlayButton = document.querySelector("#close-overlay");
@@ -53,7 +53,7 @@ closeOverlayButton.addEventListener("click", () => {
     overlay.classList.remove("visible");
 });
 
-// Close overlay if clicking outside content
+
 overlay.addEventListener("click", (e) => {
     if (e.target === overlay) {
         overlay.classList.remove("visible");

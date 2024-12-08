@@ -18,8 +18,8 @@
     <header id="main-header" class="grid-con">
         <img id="logo" class="col-span-1" src="images/invert_logo.svg" alt="girl sitting on moon looking at star icon">
         <h2 class="hidden">Main Navigation</h2>
-            <nav id="main-nav" class="grid-con col-start-4">
-                <label class="checkbox grid-con col-start-2">
+            <nav id="main-nav" class="grid-con col-start-4 m-col-start-6 m-col-span-full">
+                <label id="checkbox" class="grid-con col-start-2">
                     <input type="checkbox" id="toggleCheckbox">
                     <svg width="60" height="60" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path id="line7" d="M2 73H58" stroke="white" stroke-width="4" stroke-linecap="round" />
@@ -36,11 +36,11 @@
                       </g>
                     </svg>
                   </label>
-                <div class="col-span-full" id="burger-con">
-                    <ul class="nav-menu">
-                        <li class="nav-link m-col-start-1 col-span-1"><a href="#">About</a></li>
-                        <li class="nav-link col-start-2 col-span-1"><a href="#">Case Studies</a></li>
-                        <li class="nav-link col-start-3 col-span-1"><a href="#">Contact</a></li>
+                <div class="grid-con col-span-full" id="burger-con">
+                    <ul class="nav-menu grid-con col-span-full m-col-span-full">
+                        <li class="nav-link m-col-start-4 m-col-span-2 col-start-1 col-span-full"><a href="#">About</a></li>
+                        <li class="nav-link m-col-start-6 m-col-span-4 col-start-1 col-span-full"><a href="#">Case Studies</a></li>
+                        <li class="nav-link m-col-start-11 m-col-span-2 col-start-1 col-span-full"><a href="#">Contact</a></li>
                     </ul>
                 </div>
             </nav>
@@ -243,21 +243,24 @@
                                   </svg>
                             <h4>Available for Internship</h4>
                             </div>
-                            <div id="studies">
-                                <h2>Case Studies</h2>
-                                <ul>
-                                    <li><a href="">Medvsa</a></li>
-                                </ul>
-                            </div>
-                            <div id="tools">
-                                <h2>Completed</h2>
-                                <div class="filter">
-                                    <button>Front-End</button>
+                            <div class="case-direct">
+                                <div id="studies">
+                                    <h2>Case Studies</h2>
+                                    <ul>
+                                        <li><a href="">Medvsa</a></li>
+                                    </ul>
                                 </div>
-                               <p>Front-End</p>
-                            </div>
-                            <div id="date">
-                                <h2>Completed</h2>
+                                <div id="tools">
+                                    <h2>Tools</h2>
+                                    <div class="filter">
+                                        <button>Front-End</button>
+                                    </div>
+                                <p>Front-End</p>
+                                </div>
+                                <div id="date">
+                                    <h2>Completed</h2>
+                                    <p>November 2024</p>
+                                </div>
                             </div>
                        
                             

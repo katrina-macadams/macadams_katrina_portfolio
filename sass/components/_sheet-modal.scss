@@ -107,6 +107,13 @@
     transition: 1s;
 }
 
+#available {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
 #blink {
     height: 24px;
     width: 24px;
@@ -121,4 +128,38 @@
 
 #blink.fade {
     opacity:0;
+}
+
+.case-direct {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#studies li a {
+    color: black;
+}
+
+#tools p {
+ padding: 8px;
+ margin-left: 8px;
+ background-color: #FFE8F7 ;
+ border-radius: 5px;
+}
+
+#tools button {
+    background-color: transparent;
+    border: 1px solid rgba(162, 162, 162, 0.75) ;
+    color: rgba(162, 162, 162, 0.75) ;
+    border-radius: 5px;
+    
+}
+
+#date p {
+    margin-top: 34px;
+}
+
+.case-direct p {
+    font-size: 16px;
+    margin: 4px;
 }
