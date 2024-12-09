@@ -40,6 +40,12 @@ There is no complex installation process, simply clone the repository to your lo
     - Images added to the images folder between the last version and this one
 
 
+- **v1.1.0 - 2024, December 8th**
+    Updated Read.me
+    - Added more GS animations
+    - Made the website semi-dynamic with a contact form
+    - Added more styling
+
 > [!NOTE]
 > This Portfolio is currently a Work In Progress (WIP). Features may change, and new ones will be added as development continues.
 

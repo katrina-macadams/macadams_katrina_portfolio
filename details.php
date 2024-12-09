@@ -26,8 +26,9 @@ $row = mysqli_fetch_assoc($results);
 <body>
  <!-- HEADER -->
  <header id="main-header" class="grid-con">
+ <a href="index.php">
     <img id="logo" class="col-span-1" src="images/invert_logo.svg" alt="girl sitting on moon looking at star icon">
-    <h2 class="hidden">Main Navigation</h2>
+</a>
         <nav id="main-nav" class="grid-con col-start-4 m-col-start-6 m-col-span-full">
             <label id="checkbox" class="grid-con col-start-2">
                 <input type="checkbox" id="toggleCheckbox">
@@ -48,7 +49,7 @@ $row = mysqli_fetch_assoc($results);
               </label>
             <div class="grid-con col-span-full" id="burger-con">
                 <ul class="nav-menu grid-con col-span-full m-col-span-full">
-                    <li class="nav-link m-col-start-6 m-col-span-4 col-start-1 col-span-full"><a href="case-study.html">Case Studies</a></li>
+                    <li class="nav-link m-col-start-6 m-col-span-4 col-start-1 col-span-full"><a href="details.php">Case Studies</a></li>
                     <li class="nav-link m-col-start-11 m-col-span-2 col-start-1 col-span-full"><a href="#">Contact</a></li>
                 </ul>
             </div>
@@ -181,35 +182,39 @@ $row = mysqli_fetch_assoc($results);
      </div>
  </section>
 
- <!-- CONTACT -->
- <section id="contact" class="grid-con">
-  <h2 class="col-start-2 col-span-full m-col-start-5 m-col-span-4">Begin Your Story Today</h2>
+   <!-- CONTACT -->
+        <section id="contact" class="grid-con">
+            <h2 class="col-start-2 col-span-full m-col-start-5 m-col-span-4">Begin Your Story Today</h2>
+                <form action="sendmail.php" method="post" class="col-span-full grid-con">
+                <div class="col-span-2 m-col-start-4">
+                    <div id="f-name" class="f-box col-span-full">
+                        <label for="first_name"></label>
+                        <input id="first_name" id="first_name" placeholder="FIRST NAME*" type="text" class="txt-w" name="first_name" >
+                    </div>
+        
+                    <div id="l-name" class="f-box col-start-1 col-span-full m-col-span-6">
+                        <label for="last_name"></label>
+                        <input placeholder="LAST NAME*" id="last_name" type="text" class="txt-w" name="last_name">
+                    </div>
+                    <div id="e-mail" class="f-box col-span-full m-col-start-1 m-col-span-6">
+                        <label for="email"></label>
+                        <input placeholder="EMAIL*" name="email"  id="email" type="email" class="txt-w">
+                    </div>
+    
+                </div>
+                    <div class="f-box col-start-3 col-span-2 m-col-start-7 m-col-span-6">
+                        <label for="message"></label>
+                        <textarea class="txt-w" placeholder="MESSAGE"  id="message"  name="message" rows="2"></textarea>
+                    </div>
 
-     <form method="post" action="sendmail.php">
-
-    <label for="first_name">First Name: </label>
-    <input type="text" name="first_name" id="first_name">
-
-<br><br>
-
-    <label for="last_name">Last Name: </label>
-    <input type="text" name="last_name" id="last_name">
-
-    <br><br>
-
-    <label for="email">Email: </label>
-    <input type="text" name="email" id="email">
-
-    <br><br>
-
-    <label for="comments">Comments: </label>
-    <textarea name="comments" id="comments">comment here</textarea>
-
-    <br><br>
-
-    <input type="submit" value="send">
-</form>
-</section>
+                    <div class="button col-start-3 col-span-1 m-col-start-7 m-col-span-2">
+                        <button>
+                            <input id="submit" type="submit" value="SEND" class="text-w">
+                        </button>
+                    </div>
+                </form>
+                <button class="back-to-top col-span-2" id="backToTopBtn">↑ Back to Top</button>
+        </section>
 
   <!-- CASE STUDY TOGGLE -->
   <section id="case-toggle" class="grid-con">

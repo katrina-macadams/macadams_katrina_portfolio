@@ -5,6 +5,15 @@
   margin-bottom: 120px;
 }
 
+.back-to-top {
+  border-radius: 5px;
+  background-color: v.$pink;
+  opacity: 0.95;
+  padding: 24px;
+  color: #ffff;
+  cursor: pointer;
+}
+
 #contact h2 {
   margin: 48px 24px;
 }

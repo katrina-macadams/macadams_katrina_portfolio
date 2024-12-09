@@ -1,4 +1,4 @@
-@use '../abstracts/variables' as v; 
+@use '../abstracts/variables' as v;
 
 .car-links a {
     font-weight: 600;
@@ -22,20 +22,26 @@
 
 .images-slide img {
     height: 264px;
+    object-fit: cover;  /* This ensures the images cover the area without distortion */
 }
 
 .images-slide {
-    animation: 45s slide infinite linear;
+    animation: 60s slide infinite linear;
     display: flex;
     flex-direction: row;
 }
 
+.images-slide a {
+    display: inline-block; /* This ensures the <a> tag is inline and doesn't affect the layout */
+    width: 100%; /* Optional: Ensures the anchor takes full width of the image */
+}
 
-
+/* For the animation to work correctly with a smooth slide */
 @keyframes slide {
     from {
         transform: translateX(0%)
     }
-    to {transform: translateX(-500%)}
+    to {
+        transform: translateX(-500%)
+    }
 }
-
