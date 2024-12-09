@@ -191,30 +191,32 @@ $row = mysqli_fetch_assoc($results);
         <!-- CONTACT -->
         <section id="contact" class="grid-con">
             <h2 class="col-start-2 col-span-full m-col-start-5 m-col-span-4">Begin Your Story Today</h2>
-                <form action="send_mail.php" method="post" enctype="text/plain" class="col-span-full grid-con">
+                <form action="sendmail.php" method="post" class="col-span-full grid-con">
                 <div class="col-span-2">
                     <div id="f-name" class="f-box col-span-full m-col-span-6">
-                        <label for="name"></label>
-                        <input placeholder="FIRST NAME*" type="text" class="txt-w">
+                        <label for="first_name"></label>
+                        <input id="first_name" id="first_name" placeholder="FIRST NAME*" type="text" class="txt-w" name="first_name" >
                     </div>
         
                     <div id="l-name" class="f-box col-start-1 col-span-full m-col-span-6">
-                        <label for="name"></label>
-                        <input placeholder="LAST NAME*"  type="text" class="txt-w">
+                        <label for="last_name"></label>
+                        <input placeholder="LAST NAME*" id="last_name" type="text" class="txt-w" name="last_name">
                     </div>
                     <div id="e-mail" class="f-box col-span-full m-col-start-1 m-col-span-6">
-                        <label for="mail"></label>
-                        <input placeholder="EMAIL*"  type="email" class="txt-w">
+                        <label for="email"></label>
+                        <input placeholder="EMAIL*" name="email"  id="email" type="email" class="txt-w">
                     </div>
     
                 </div>
                     <div class="f-box col-start-3 col-span-2 m-col-start-7 m-col-span-6">
                         <label for="message"></label>
-                        <textarea class="txt-w" placeholder="MESSAGE"  id="message" rows="2"></textarea>
+                        <textarea class="txt-w" placeholder="MESSAGE"  id="message"  name="message" rows="2"></textarea>
                     </div>
 
                     <div class="button col-start-3 col-span-1 m-col-start-7 m-col-span-2">
-                        <input id="submit" type="button" value="Send">
+                        <button>
+                            <input id="submit" type="submit" value="SEND" class="text-w">
+                        </button>
                     </div>
                 </form>
         </section>

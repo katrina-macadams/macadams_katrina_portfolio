@@ -15,7 +15,7 @@ input, textarea {
     outline: 0px;
     border: 1.5px solid rgba(255, 105, 185, 0.598);
     background: transparent;
-    padding: 8px;
+    padding: 12px;
 }
 
 input::placeholder,  textarea::placeholder {
@@ -25,17 +25,15 @@ input::placeholder,  textarea::placeholder {
   font-weight: 600px;
 }
 
-input[type=button] {
+
+input[value=SEND] {
+  background-color: transparent;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
   font-family: "Julius Sans One", sans-serif;
   cursor: pointer;
+  color: white;
 }
 
-input[type=button]:hover {
-  background: rgb(73,149,242);
-  background: linear-gradient(90deg, rgba(73,149,242,1) 0%, rgba(198,129,255,1) 100%);
-}
 
 
 form {
@@ -61,4 +59,15 @@ form label {
 
   .txt-w {
     color:white;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+  }
+
+  button:hover {
+    background: rgb(73,149,242);
+    background: linear-gradient(90deg, rgba(73,149,242,1) 0%, rgba(198,129,255,1) 100%);
+    border-radius: 5px;
   }

@@ -3,9 +3,10 @@
 <?php
 require_once('includes/connect.php');
 
-$query = 'SELECT * FROM projects, media WHERE project_id = projects.id';
+$query = 'SELECT * FROM `projects`, `media` WHERE projects.id = 1';
 
-$results = mysqli_query($connect,$query);
+$results = mysqli_query($connect, $query);
+$row = mysqli_fetch_assoc($results);
 ?>
 
 
@@ -55,15 +56,15 @@ $results = mysqli_query($connect,$query);
 
         <!-- Hero -->
         <section class="case-hero grid-con col-span-full">
-          <h1 class="col-span-full">Orbitz</h1>
-          <h2 class="col-span-3">Drink Product Rebrand</h2>
-          <h4 class="col-span-3">Interactive flavours and cosmic adventures in every botlle</h4>
+          <h1 class="col-span-full"><?php echo $row['name'];?></h1>
+          <!-- <h2 class="col-span-3">Drink Product Rebrand</h2>
+          <h4 class="col-span-3">Interactive flavours and cosmic adventures in every botlle</h4> -->
         </section> 
     </header>
   <main>
     <section id="challenge" class="case-sec">
       <h2>The Challenge Awaits</h2>
-      <p><?php echo $row['description']?></p>
+      <p><?php echo $row['description'];?></p>
       
       <span>_______</span>
     </section>
@@ -84,9 +85,30 @@ $results = mysqli_query($connect,$query);
       </div>
     </section>
 
-   <section class="case-images">
-    <img src="images/orb-2space.jpg">
-  </section>
+      <!-- CAROUSAL -->
+      <section class="carousal-sec">
+            <h2 class="hidden">Carousal</h2>
+                <ul class="col-span-full grid-con car-links">
+                    <li class="col-span-1 m-col-span-2 l-col-span-1"><a href="#">All Projects</a></li>
+                    <li class="col-start-2 col-span-1 m-col-start-4 m-col-span-2 l-col-start-2 l-col-span-1"><a href="#">Medvsa</a></li>
+                    <li class="col-start-3 col-span-1 m-col-start-6 m-col-span-2 l-col-start-3 l-col-span-1"><a href="#">Kevorka</a></li>
+                    <li class="col-start-4 col-span-1  m-col-start-8 m-col-span-2 l-col-start-4 l-col-span-1"><a href="#">Orbitz</a></li>
+                </ul>
+            <div class="carousal">
+                <div class="images-slide">
+                <?php
+                 while($row = mysqli_fetch_array($results)) {
+            echo'<img src="images/'; 
+                
+                echo $row['filename']; echo $row['filetype']; echo'">';
+            }
+            ?>
+
+            </div>
+            </div>
+      
+        </section>
+
 
   <section id="conflict" class="case-plot-l">
     <h2>The Conflict</h2>
@@ -94,18 +116,10 @@ $results = mysqli_query($connect,$query);
     <p>Orbitz, a 1990s drink known for its suspended orbs, failed to captivate audiences due to issues with taste, texture, and branding. This project reimagines Orbitz as a bold, modern product with updated branding and conceptual flavors while keeping its iconic orb feature. My role involved brand strategy, packaging design, web development, and storytelling. </p>
   </section>
 
-  <section class="case-images">
-    <img src="images/orb-glass.jpg">
-  </section>
-
   <section id="brainstorm" class="case-plot-r">
     <h2>Searching for the One</h2>
     <p class="sub-grad">Before landing on the final theme, I explored multiple creative directions to redefine Orbitz.</p>
     <p>Rebranding Orbitz began with a deep dive into thematic possibilities that could revive its identity. I explored a range of concepts, from a sleek, street-style aesthetic to retro-futurism and ethereal, aura-inspired designs. Ultimately, I returned to Orbitz’s original space theme but reimagined it with a bold, adventurous, and cartoonish twist.  </p>
-  </section>
-
-  <section id="orb-3" class="brain-images">
-    <img src="images/orb-pin.png">
   </section>
 
   <section id="map" class="case-plot-l">
@@ -133,19 +147,10 @@ $results = mysqli_query($connect,$query);
     </div>
   </section>
 
-
-  <section class="brain-images">
-    <img src="images/orb-orb.png">
-  </section>
-
   <section id="ideas" class="case-plot-r">
     <h2>Searching for the One</h2>
     <p class="sub-grad">From outdated to extraordinary, every element of Orbitz was reimagined step by step.</p>
     <p>Initial sketches focused on clean, futuristic packaging that highlighted the drink’s floating orbs as a feature, not a flaw. Inspiration was drawn from celestial motifs to evoke a sense of wonder. High-fidelity designs incorporated bold typography and playful flavor names, creating a product that felt vibrant and premium. </p>
-  </section>
-
-  <section class="case-images">
-    <img src="images/orb-purple.jpg">
   </section>
 
   <section id="testing" class="case-plot-l">
@@ -154,18 +159,10 @@ $results = mysqli_query($connect,$query);
     <p>Feedback from professors, family, and friends were crucial in developing the consistent direction and interesting style for Orbitz. With over 15 sketches of logo concepts,  and two different bottle versions, I eventually was able to come to a finalized version that satisfied the modern rebrand. During this process, I learned a lot about target audiences and the importance of ensuring that my message was consistently on brand. </p>
   </section>
 
-  <section class="case-images">
-    <img src="images/orb-old.jpg">
-  </section>
-
   <section id="ideas" class="case-plot-r">
     <h2>The Destination</h2>
     <p class="sub-grad">Strategic execution and cohesive design made this project a triumph.</p>
     <p>This project demonstrated the power of storytelling in branding and marketing. By combining narrative elements with sleek 3D design, the campaign elevated the makeup products beyond their functional purpose, aligning them with a larger, aspirational identity. The process honed my skills in 3D modeling, animation, and cross-platform branding. </p>
-  </section>
-
-  <section class="case-images">
-    <img src="images/orb-bottle.jpg">
   </section>
 
   <section id="reflection" class="case-sec">
@@ -187,32 +184,31 @@ $results = mysqli_query($connect,$query);
  <!-- CONTACT -->
  <section id="contact" class="grid-con">
   <h2 class="col-start-2 col-span-full m-col-start-5 m-col-span-4">Begin Your Story Today</h2>
-      <form action="#" method="post" enctype="text/plain" class="col-span-full grid-con">
-      <div class="col-span-2">
-          <div id="f-name" class="f-box col-span-full m-col-span-6">
-              <label for="name"></label>
-              <input placeholder="FIRST NAME*" type="text" class="txt-w">
-          </div>
 
-          <div id="l-name" class="f-box col-start-1 col-span-full m-col-span-6">
-              <label for="name"></label>
-              <input placeholder="LAST NAME*"  type="text" class="txt-w">
-          </div>
-          <div id="e-mail" class="f-box col-span-full m-col-start-1 m-col-span-6">
-              <label for="mail"></label>
-              <input placeholder="EMAIL*"  type="email" class="txt-w">
-          </div>
+     <form method="post" action="sendmail.php">
 
-      </div>
-          <div class="f-box col-start-3 col-span-2 m-col-start-7 m-col-span-6">
-              <label for="message"></label>
-              <textarea placeholder="MESSAGE"  id="message" rows="2" class="txt-w"></textarea>
-          </div>
+    <label for="first_name">First Name: </label>
+    <input type="text" name="first_name" id="first_name">
 
-          <div class="button col-start-3 col-span-1 m-col-start-7 m-col-span-2">
-              <input id="submit" type="button" value="Send">
-          </div>
-      </form>
+<br><br>
+
+    <label for="last_name">Last Name: </label>
+    <input type="text" name="last_name" id="last_name">
+
+    <br><br>
+
+    <label for="email">Email: </label>
+    <input type="text" name="email" id="email">
+
+    <br><br>
+
+    <label for="comments">Comments: </label>
+    <textarea name="comments" id="comments">comment here</textarea>
+
+    <br><br>
+
+    <input type="submit" value="send">
+</form>
 </section>
 
   <!-- CASE STUDY TOGGLE -->
@@ -253,9 +249,7 @@ $results = mysqli_query($connect,$query);
                             <div id="studies">
                                 <h2>Case Studies</h2>
                                 <ul>
-                                <li><a href="case-study.php?id=1">Medvsa</a></li>
-                                <li><a href="case-study.php?id=2">Kevorka</a></li>
-                                <li><a href="case-study.php?id=3">Orbitz</a></li>
+                                <li><a href="">Medvsa</a></li>
                                 </ul>
                             </div>
                             <div id="tools">
@@ -270,8 +264,6 @@ $results = mysqli_query($connect,$query);
                                 <p>November 2024</p>
                             </div>
                         </div>
-                   
-                        
                     </div>
                 </div>
             </div>
