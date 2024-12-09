@@ -126,6 +126,44 @@ setInterval(toggleFade, 900);
 
 const player = new Plyr('video'); 
 
+
+  gsap.to("h1", {
+    opacity: 1,         
+    y: -30,             
+    duration: 2,          
+    ease: "power3.out",   
+    delay: 0.5        
+});
+
+gsap.to("h3", {
+    opacity: 1,           
+    y: -20,               
+    duration: 1,          
+    ease: "power3.out",  
+    delay: 1             
+});
+
+(() => {
+
+const backToTopBtn = document.getElementById("backToTopBtn");
+
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        backToTopBtn.classList.add("show"); 
+    } else {
+        backToTopBtn.classList.remove("show"); 
+    }
+};
+
+
+backToTopBtn.addEventListener("click", function() {
+    gsap.to(window, { scrollTo: 0, duration: 1, ease: "power2.out" });
+});
+
+})();
+
+
 (() => {
   const aboutSection = document.querySelector("#about");
   const overlay = document.querySelector("#overlay");
@@ -147,38 +185,4 @@ const player = new Plyr('video');
   });
   
   })();
-
-  gsap.to("h1", {
-    opacity: 1,         
-    y: -30,             
-    duration: 2,          
-    ease: "power3.out",   
-    delay: 0.5        
-});
-
-gsap.to("h3", {
-    opacity: 1,           
-    y: -20,               
-    duration: 1,          
-    ease: "power3.out",  
-    delay: 1             
-});
-
-const backToTopBtn = document.getElementById("backToTopBtn");
-
-// Show the button when the user scrolls down 100px from the top of the document
-window.onscroll = function() {
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        backToTopBtn.classList.add("show"); // Add the 'show' class to make it visible
-    } else {
-        backToTopBtn.classList.remove("show"); // Hide the button when at the top
-    }
-};
-
-// GSAP scroll animation when the button is clicked
-backToTopBtn.addEventListener("click", function() {
-    gsap.to(window, { scrollTo: 0, duration: 1, ease: "power2.out" });
-});
-
-
 
