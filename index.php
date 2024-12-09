@@ -20,6 +20,15 @@ $row = mysqli_fetch_assoc($results);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js" async></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js" defer></script>
+    <script src="js/gsap.min.js" defer></script>
+    <script src="js/MorphSVGPlugin.min.js" defer></script>
+    <script src="js/ScrollToPlugin.min.js" defer></script>
+    <script src="js/ScrollTrigger.min.js" defer></script>
+    
+
+    <script src="js/main.js" defer></script>
     <title>Portfolio</title>
 </head>
 <body>
@@ -48,9 +57,9 @@ $row = mysqli_fetch_assoc($results);
                   </label>
                 <div class="grid-con col-span-full" id="burger-con">
                     <ul class="nav-menu grid-con col-span-full m-col-span-full">
-                        <li class="nav-link m-col-start-4 m-col-span-2 col-start-1 col-span-full"><a href="#">About</a></li>
+                        <li class="nav-link m-col-start-4 m-col-span-2 col-start-1 col-span-full"><a href="#about">About</a></li>
                         <li class="nav-link m-col-start-6 m-col-span-4 col-start-1 col-span-full"><a href="case-study.html">Case Studies</a></li>
-                        <li class="nav-link m-col-start-11 m-col-span-2 col-start-1 col-span-full"><a href="#">Contact</a></li>
+                        <li class="nav-link m-col-start-11 m-col-span-2 col-start-1 col-span-full"><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
             </nav>
@@ -59,7 +68,7 @@ $row = mysqli_fetch_assoc($results);
             </div>
         <section id="hero" class="grid-con col-span-full">
             <?xml version="1.0" encoding="UTF-8"?>
-        <svg class="hero-bg" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 427 335">
+        <svg class="hero-bg" id="const" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 427 335">
   <!-- Generator: Adobe Illustrator 29.1.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 142)  -->
   <defs>
     <style>
@@ -156,15 +165,15 @@ $row = mysqli_fetch_assoc($results);
             </div>
       
         </section>
-
-
         <!-- ABOUT -->
         <section id="about" class="grid-con">
-            <h2 class="col-span-full">About Me</h2>
-            <p class="col-span-full m-col-span-8" id="about-content">
+            <h2 class="col-span-full" >About Me</h2>
+            <p class="col-span-full" id="about-content">
                 Hi, I’m Katrina MacAdams—a web developer with a heart that beats for motion and a mind that thrives on weaving creativity and code into something magical. I’ve always been a writer at my core, crafting limitless worlds and stories in my head. Motion design and web development have become my medium to tell stories beyond ink and paper...
             </p>
         </section>
+
+         <!-- <spline-viewer hint loading-anim-type="spinner-small-light" url="https://prod.spline.design/OnPWwO71qYGFMSAP/scene.splinecode"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAATCAYAAADxlA/3AAAJ+ElEQVR4AQCBAH7/ANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwPZjK8W2YyvJ9mMrzTZjK882YyvPtmMrzvZjK8y2YyvJNmMrxTZjK8B2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8AAIEAfv8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8D2YyvGNmMryzZjK892YyvStmMr1PZjK9V2YyvUdmMr0jZjK862YyvKNmMrxXZjK8C2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwAAgQB+/wDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvEdmMrybZjK882YyvUtmMr2TZjK9y2YyvetmMr33ZjK942YyvbtmMr1/ZjK9N2YyvONmMryTZjK8Q2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvAACBAH7/ANmMrwXZjK8D2YyvANmMrwDZjK8A2YyvANmMrwDZjK8G2YyvEtmMryTZjK852YyvUNmMr2jZjK9/2Yyvk9mMr6LZjK+r2YyvrdmMr6jZjK+d2YyvjNmMr3jZjK9i2YyvS9mMrzXZjK8h2YyvENmMrwHZjK8A2YyvANmMrwDZjK8AAIEAfv8A2YyvEtmMrxHZjK8P2YyvDdmMrw3ZjK8Q2YyvF9mMryLZjK8y2YyvRtmMr1/ZjK952Yyvk9mMr6zZjK/B2Yyv0dmMr9rZjK/b2Yyv1tmMr8nZjK+32YyvodmMr4nZjK9v2YyvV9mMr0HZjK8t2YyvHdmMrxDZjK8H2YyvAdmMrwAAgQB+/wDZjK8W2YyvFtmMrxXZjK8W2YyvGNmMrx7ZjK8o2YyvNtmMr0nZjK9h2YyvfNmMr5nZjK+22Yyv0NmMr+fZjK/32Yyv/9mMr//ZjK/72Yyv7dmMr9nZjK/B2YyvptmMr4rZjK9v2YyvVtmMr0HZjK8v2YyvINmMrxbZjK8P2YyvCwCBAH7/ANmMrxPZjK8T2YyvFNmMrxbZjK8b2YyvI9mMry/ZjK9A2YyvV9mMr3HZjK+P2YyvrtmMr83ZjK/p2Yyv/9mMr//ZjK//2Yyv/9mMr//ZjK//2Yyv7tmMr9PZjK+22YyvmNmMr3vZjK9g2YyvSNmMrzTZjK8k2YyvGdmMrxHZjK8NAIEAfv8A2YyvC9mMrwvZjK8N2YyvEdmMrxfZjK8h2YyvMNmMr0PZjK9c2YyveNmMr5jZjK+52Yyv2dmMr/bZjK//2Yyv/9mMr//ZjK//2Yyv/9mMr//ZjK/22Yyv2tmMr7vZjK+b2YyvfNmMr1/ZjK9G2YyvMNmMrx/ZjK8S2YyvCtmMrwYAgQB+/wDZjK8D2YyvBNmMrwbZjK8K2YyvEtmMrx3ZjK8t2YyvQtmMr1zZjK962YyvmtmMr7zZjK/d2Yyv+tmMr//ZjK//2Yyv/9mMr//ZjK//2Yyv/9mMr/XZjK/Y2Yyvt9mMr5bZjK922YyvWNmMrz3ZjK8n2YyvFdmMrwjZjK8A2YyvAACBAH7/ANmMrwDZjK8B2YyvA9mMrwjZjK8Q2YyvG9mMryzZjK9B2YyvW9mMr3nZjK+a2Yyvu9mMr9vZjK/42Yyv/9mMr//ZjK//2Yyv/9mMr//ZjK//2Yyv7tmMr9DZjK+w2YyvjtmMr23ZjK9P2YyvNdmMrx7ZjK8N2YyvANmMrwDZjK8AAIEAfv8A2YyvA9mMrwTZjK8G2YyvC9mMrxLZjK8d2YyvLdmMr0HZjK9b2YyveNmMr5fZjK+42Yyv19mMr/PZjK//2Yyv/9mMr//ZjK//2Yyv/9mMr/7ZjK/l2Yyvx9mMr6fZjK+G2YyvZtmMr0jZjK8u2YyvGdmMrwfZjK8A2YyvANmMrwAAgQB+/wDZjK8L2YyvC9mMrw3ZjK8R2YyvF9mMryHZjK8v2YyvQtmMr1rZjK912Yyvk9mMr7HZjK/P2Yyv6dmMr/7ZjK//2Yyv/9mMr//ZjK//2Yyv8dmMr9jZjK+72YyvnNmMr33ZjK9e2YyvQtmMryrZjK8W2YyvBtmMrwDZjK8A2YyvAACBAH7/ANmMrxPZjK8T2YyvFNmMrxbZjK8b2YyvI9mMry/ZjK9A2YyvVdmMr23ZjK+J2YyvpdmMr8DZjK/Y2Yyv7NmMr/jZjK/92Yyv+tmMr/DZjK/e2Yyvx9mMr6vZjK+O2YyvcdmMr1XZjK882YyvJtmMrxTZjK8G2YyvANmMrwDZjK8AAIEAfv8A2YyvFtmMrxbZjK8W2YyvF9mMrxrZjK8f2YyvKdmMrzbZjK9I2YyvXtmMr3bZjK+Q2YyvqdmMr7/ZjK/R2Yyv3NmMr+HZjK/e2Yyv1NmMr8PZjK+u2YyvldmMr3rZjK9g2YyvR9mMrzHZjK8e2YyvDtmMrwPZjK8A2YyvANmMrwAAgQB+/wDZjK8S2YyvEdmMrxDZjK8P2YyvENmMrxPZjK8Z2YyvJNmMrzPZjK9G2YyvW9mMr3LZjK+I2YyvnNmMr6zZjK+32Yyvu9mMr7jZjK+v2YyvoNmMr43ZjK932YyvX9mMr0jZjK8y2YyvH9mMrw/ZjK8D2YyvANmMrwDZjK8A2YyvAACBAH7/ANmMrwXZjK8E2YyvAdmMrwDZjK8A2YyvANmMrwLZjK8K2YyvFtmMrybZjK842YyvTNmMr2DZjK9z2YyvgdmMr4vZjK+P2YyvjdmMr4XZjK942YyvZ9mMr1PZjK8+2YyvKtmMrxjZjK8I2YyvANmMrwDZjK8A2YyvANmMrwDZjK8AAIEAfv8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvBNmMrxTZjK8m2YyvONmMr0nZjK9W2YyvYNmMr2TZjK9i2YyvW9mMr0/ZjK9A2YyvLtmMrxzZjK8L2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwAAgQB+/wDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwbZjK8X2YyvJtmMrzPZjK882YyvQNmMrz/ZjK852YyvLtmMryDZjK8Q2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvAAGBAH7/ANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwTZjK8T2YyvINmMryjZjK8s2YyvK9mMryXZjK8b2YyvDtmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8Alv6h11zjL4YAAAAASUVORK5CYII=" alt="Spline preview" style="width: 100%; height: 100%;"/></spline-viewer> -->
         
         <div id="overlay" class="hidden">
             <div id="overlay-content">
@@ -192,8 +201,8 @@ $row = mysqli_fetch_assoc($results);
         <section id="contact" class="grid-con">
             <h2 class="col-start-2 col-span-full m-col-start-5 m-col-span-4">Begin Your Story Today</h2>
                 <form action="sendmail.php" method="post" class="col-span-full grid-con">
-                <div class="col-span-2">
-                    <div id="f-name" class="f-box col-span-full m-col-span-6">
+                <div class="col-span-2 m-col-start-4">
+                    <div id="f-name" class="f-box col-span-full">
                         <label for="first_name"></label>
                         <input id="first_name" id="first_name" placeholder="FIRST NAME*" type="text" class="txt-w" name="first_name" >
                     </div>
@@ -219,7 +228,10 @@ $row = mysqli_fetch_assoc($results);
                         </button>
                     </div>
                 </form>
+                <button class="back-to-top col-span-2" id="backToTopBtn">↑ Back to Top</button>
         </section>
+
+       
 
         <!-- CASE STUDY TOGGLE -->
     <section id="case-toggle" class="grid-con">
@@ -282,10 +294,7 @@ $row = mysqli_fetch_assoc($results);
     </main>
     <footer> 
     </footer>
-    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script> 
-    <script src="js/gsap.min.js"></script>
-    <script src="js/MorphSVGPlugin.min.js"></script>
-    <script src="js/main.js"></script>
+   
 
 </body>
 </html>

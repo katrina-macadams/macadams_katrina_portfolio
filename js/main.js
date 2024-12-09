@@ -78,6 +78,52 @@ setInterval(toggleFade, 900);
 
 
 
+(() => {
+  const aboutSection = document.querySelector("#about");
+  const overlay = document.querySelector("#overlay");
+  const closeOverlayButton = document.querySelector("#close-overlay");
+  
+  aboutSection.addEventListener("click", () => {
+      overlay.classList.add("visible");
+  });
+  
+  closeOverlayButton.addEventListener("click", () => {
+      overlay.classList.remove("visible");
+  });
+  
+  
+  overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) {
+          overlay.classList.remove("visible");
+      }
+  });
+  
+  })();
+
+  (() => {
+
+    gsap.registerPlugin(ScrollToPlugin)
+
+    const navLinks = document.querySelectorAll("#main-header nav #burger-con ul li a");
+  
+    console.log(navLinks)
+    function scrollLink(e) {
+      // Check if the link contains a hash (e.g., #about, #contact)
+      if (!e.currentTarget.hash) {
+          return; // Skip handling links without hashes
+      }
+
+      console.log(e.currentTarget.hash);
+      e.preventDefault();
+      let selectedLink = e.currentTarget.hash;
+      gsap.to(window, {duration: 1, scrollTo: {y: `${selectedLink}`, offsetY: 100}});
+  }
+
+    navLinks.forEach((link) => {
+        link.addEventListener("click", scrollLink);
+    })
+})();
+
 const player = new Plyr('video'); 
 
 (() => {
@@ -101,3 +147,38 @@ const player = new Plyr('video');
   });
   
   })();
+
+  gsap.to("h1", {
+    opacity: 1,         
+    y: -30,             
+    duration: 2,          
+    ease: "power3.out",   
+    delay: 0.5        
+});
+
+gsap.to("h3", {
+    opacity: 1,           
+    y: -20,               
+    duration: 1,          
+    ease: "power3.out",  
+    delay: 1             
+});
+
+const backToTopBtn = document.getElementById("backToTopBtn");
+
+// Show the button when the user scrolls down 100px from the top of the document
+window.onscroll = function() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        backToTopBtn.classList.add("show"); // Add the 'show' class to make it visible
+    } else {
+        backToTopBtn.classList.remove("show"); // Hide the button when at the top
+    }
+};
+
+// GSAP scroll animation when the button is clicked
+backToTopBtn.addEventListener("click", function() {
+    gsap.to(window, { scrollTo: 0, duration: 1, ease: "power2.out" });
+});
+
+
+
