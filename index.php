@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-
-require_once('includes/connect.php');
-
-// $query = 'SELECT * FROM `media` ORDER BY `media`.`caption` ASC';
-$query = 'SELECT * FROM projects, media WHERE project_id = projects.id';
-
-$results = mysqli_query($connect, $query);
-
-
-?>
 <head>
+
+<?php
+    require_once('includes/connect.php');
+
+    // Fetch all images
+    $query = 'SELECT media.filename, media.filetype, projects.name 
+              FROM media 
+              JOIN projects ON media.project_id = projects.id 
+              ORDER BY RAND() 
+              LIMIT 12';
+    $results = mysqli_query($connect, $query);
+    ?> 
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -35,10 +37,8 @@ $results = mysqli_query($connect, $query);
 <body>
 
     <!-- HEADER -->
-    <header id="landing-header" class="grid-con">
-    <a href="index.php">
-     <img id="logo" class="col-span-1" src="images/invert_logo.svg" alt="girl sitting on moon looking at star icon">
-    </a>
+    <header id="main-header" class="grid-con">
+        <img id="logo" class="col-span-1" src="images/invert_logo.svg" alt="girl sitting on moon looking at star icon">
         <h2 class="hidden">Main Navigation</h2>
             <nav id="main-nav" class="grid-con col-start-4 m-col-start-6 m-col-span-full">
                 <label id="checkbox" class="grid-con col-start-2">
@@ -61,7 +61,7 @@ $results = mysqli_query($connect, $query);
                 <div class="grid-con col-span-full" id="burger-con">
                     <ul class="nav-menu grid-con col-span-full m-col-span-full">
                         <li class="nav-link m-col-start-4 m-col-span-2 col-start-1 col-span-full"><a href="#about">About</a></li>
-                        <li class="nav-link m-col-start-6 m-col-span-4 col-start-1 col-span-full"><a href="details.php">Case Studies</a></li>
+                        <li class="nav-link m-col-start-6 m-col-span-4 col-start-1 col-span-full"><a href="case-study.html">Case Studies</a></li>
                         <li class="nav-link m-col-start-11 m-col-span-2 col-start-1 col-span-full"><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -145,29 +145,20 @@ $results = mysqli_query($connect, $query);
     </header>
 
     <main>
-        <!-- CAROUSAL -->
-        <section class="carousal-sec">
-            <h2 class="hidden">Carousal</h2>
-                <ul class="col-span-full grid-con car-links">
-                    <li class="col-span-1 m-col-span-2 l-col-span-1"><a href="#">All Projects</a></li>
-                    <li class="col-start-2 col-span-1 m-col-start-4 m-col-span-2 l-col-start-2 l-col-span-1"><a href="#">Medvsa</a></li>
-                    <li class="col-start-3 col-span-1 m-col-start-6 m-col-span-2 l-col-start-3 l-col-span-1"><a href="#">Kevorka</a></li>
-                    <li class="col-start-4 col-span-1  m-col-start-8 m-col-span-2 l-col-start-4 l-col-span-1"><a href="#">Orbitz</a></li>
-                </ul>
-            <div class="carousal">
-                <div class="images-slide">
-                <?php
-                 while($row = mysqli_fetch_array($results)) {
-            echo'<img src="images/'; 
-                
-                echo $row['filename']; echo $row['filetype']; echo'">';
-            }
-            ?>
-
        
-        
-      
+        <!-- GALLERY -->
+        <section id="gallery" class="grid-con">
+            <div class="col-span-full gallery-container">
+                <?php while ($row = mysqli_fetch_assoc($results)): ?>
+                    <div class="gal-row">
+                        <a href="details.php?name=<?php echo urlencode($row['name']); ?>">
+                            <img class="gal-image" src="images/<?php echo $row['filename'] . $row['filetype']; ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
+                        </a>
+                    </div>
+                <?php endwhile; ?>
+            </div>
         </section>
+
         <!-- ABOUT -->
         <section id="about" class="grid-con">
             <h2 class="col-span-full" >About Me</h2>
@@ -176,7 +167,7 @@ $results = mysqli_query($connect, $query);
             </p>
         </section>
 
-         <spline-viewer hint loading-anim-type="spinner-small-light" url="https://prod.spline.design/OnPWwO71qYGFMSAP/scene.splinecode"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAATCAYAAADxlA/3AAAJ+ElEQVR4AQCBAH7/ANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwPZjK8W2YyvJ9mMrzTZjK882YyvPtmMrzvZjK8y2YyvJNmMrxTZjK8B2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8AAIEAfv8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8D2YyvGNmMryzZjK892YyvStmMr1PZjK9V2YyvUdmMr0jZjK862YyvKNmMrxXZjK8C2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwAAgQB+/wDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvEdmMrybZjK882YyvUtmMr2TZjK9y2YyvetmMr33ZjK942YyvbtmMr1/ZjK9N2YyvONmMryTZjK8Q2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvAACBAH7/ANmMrwXZjK8D2YyvANmMrwDZjK8A2YyvANmMrwDZjK8G2YyvEtmMryTZjK852YyvUNmMr2jZjK9/2Yyvk9mMr6LZjK+r2YyvrdmMr6jZjK+d2YyvjNmMr3jZjK9i2YyvS9mMrzXZjK8h2YyvENmMrwHZjK8A2YyvANmMrwDZjK8AAIEAfv8A2YyvEtmMrxHZjK8P2YyvDdmMrw3ZjK8Q2YyvF9mMryLZjK8y2YyvRtmMr1/ZjK952Yyvk9mMr6zZjK/B2Yyv0dmMr9rZjK/b2Yyv1tmMr8nZjK+32YyvodmMr4nZjK9v2YyvV9mMr0HZjK8t2YyvHdmMrxDZjK8H2YyvAdmMrwAAgQB+/wDZjK8W2YyvFtmMrxXZjK8W2YyvGNmMrx7ZjK8o2YyvNtmMr0nZjK9h2YyvfNmMr5nZjK+22Yyv0NmMr+fZjK/32Yyv/9mMr//ZjK/72Yyv7dmMr9nZjK/B2YyvptmMr4rZjK9v2YyvVtmMr0HZjK8v2YyvINmMrxbZjK8P2YyvCwCBAH7/ANmMrxPZjK8T2YyvFNmMrxbZjK8b2YyvI9mMry/ZjK9A2YyvV9mMr3HZjK+P2YyvrtmMr83ZjK/p2Yyv/9mMr//ZjK//2Yyv/9mMr//ZjK//2Yyv7tmMr9PZjK+22YyvmNmMr3vZjK9g2YyvSNmMrzTZjK8k2YyvGdmMrxHZjK8NAIEAfv8A2YyvC9mMrwvZjK8N2YyvEdmMrxfZjK8h2YyvMNmMr0PZjK9c2YyveNmMr5jZjK+52Yyv2dmMr/bZjK//2Yyv/9mMr//ZjK//2Yyv/9mMr//ZjK/22Yyv2tmMr7vZjK+b2YyvfNmMr1/ZjK9G2YyvMNmMrx/ZjK8S2YyvCtmMrwYAgQB+/wDZjK8D2YyvBNmMrwbZjK8K2YyvEtmMrx3ZjK8t2YyvQtmMr1zZjK962YyvmtmMr7zZjK/d2Yyv+tmMr//ZjK//2Yyv/9mMr//ZjK//2Yyv/9mMr/XZjK/Y2Yyvt9mMr5bZjK922YyvWNmMrz3ZjK8n2YyvFdmMrwjZjK8A2YyvAACBAH7/ANmMrwDZjK8B2YyvA9mMrwjZjK8Q2YyvG9mMryzZjK9B2YyvW9mMr3nZjK+a2Yyvu9mMr9vZjK/42Yyv/9mMr//ZjK//2Yyv/9mMr//ZjK//2Yyv7tmMr9DZjK+w2YyvjtmMr23ZjK9P2YyvNdmMrx7ZjK8N2YyvANmMrwDZjK8AAIEAfv8A2YyvA9mMrwTZjK8G2YyvC9mMrxLZjK8d2YyvLdmMr0HZjK9b2YyveNmMr5fZjK+42Yyv19mMr/PZjK//2Yyv/9mMr//ZjK//2Yyv/9mMr/7ZjK/l2Yyvx9mMr6fZjK+G2YyvZtmMr0jZjK8u2YyvGdmMrwfZjK8A2YyvANmMrwAAgQB+/wDZjK8L2YyvC9mMrw3ZjK8R2YyvF9mMryHZjK8v2YyvQtmMr1rZjK912Yyvk9mMr7HZjK/P2Yyv6dmMr/7ZjK//2Yyv/9mMr//ZjK//2Yyv8dmMr9jZjK+72YyvnNmMr33ZjK9e2YyvQtmMryrZjK8W2YyvBtmMrwDZjK8A2YyvAACBAH7/ANmMrxPZjK8T2YyvFNmMrxbZjK8b2YyvI9mMry/ZjK9A2YyvVdmMr23ZjK+J2YyvpdmMr8DZjK/Y2Yyv7NmMr/jZjK/92Yyv+tmMr/DZjK/e2Yyvx9mMr6vZjK+O2YyvcdmMr1XZjK882YyvJtmMrxTZjK8G2YyvANmMrwDZjK8AAIEAfv8A2YyvFtmMrxbZjK8W2YyvF9mMrxrZjK8f2YyvKdmMrzbZjK9I2YyvXtmMr3bZjK+Q2YyvqdmMr7/ZjK/R2Yyv3NmMr+HZjK/e2Yyv1NmMr8PZjK+u2YyvldmMr3rZjK9g2YyvR9mMrzHZjK8e2YyvDtmMrwPZjK8A2YyvANmMrwAAgQB+/wDZjK8S2YyvEdmMrxDZjK8P2YyvENmMrxPZjK8Z2YyvJNmMrzPZjK9G2YyvW9mMr3LZjK+I2YyvnNmMr6zZjK+32Yyvu9mMr7jZjK+v2YyvoNmMr43ZjK932YyvX9mMr0jZjK8y2YyvH9mMrw/ZjK8D2YyvANmMrwDZjK8A2YyvAACBAH7/ANmMrwXZjK8E2YyvAdmMrwDZjK8A2YyvANmMrwLZjK8K2YyvFtmMrybZjK842YyvTNmMr2DZjK9z2YyvgdmMr4vZjK+P2YyvjdmMr4XZjK942YyvZ9mMr1PZjK8+2YyvKtmMrxjZjK8I2YyvANmMrwDZjK8A2YyvANmMrwDZjK8AAIEAfv8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvBNmMrxTZjK8m2YyvONmMr0nZjK9W2YyvYNmMr2TZjK9i2YyvW9mMr0/ZjK9A2YyvLtmMrxzZjK8L2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwAAgQB+/wDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwbZjK8X2YyvJtmMrzPZjK882YyvQNmMrz/ZjK852YyvLtmMryDZjK8Q2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvAAGBAH7/ANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwTZjK8T2YyvINmMryjZjK8s2YyvK9mMryXZjK8b2YyvDtmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8Alv6h11zjL4YAAAAASUVORK5CYII=" alt="Spline preview" style="width: 100%; height: 100%;"/></spline-viewer>
+         <!-- <spline-viewer hint loading-anim-type="spinner-small-light" url="https://prod.spline.design/OnPWwO71qYGFMSAP/scene.splinecode"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAATCAYAAADxlA/3AAAJ+ElEQVR4AQCBAH7/ANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwPZjK8W2YyvJ9mMrzTZjK882YyvPtmMrzvZjK8y2YyvJNmMrxTZjK8B2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8AAIEAfv8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8D2YyvGNmMryzZjK892YyvStmMr1PZjK9V2YyvUdmMr0jZjK862YyvKNmMrxXZjK8C2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwAAgQB+/wDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvEdmMrybZjK882YyvUtmMr2TZjK9y2YyvetmMr33ZjK942YyvbtmMr1/ZjK9N2YyvONmMryTZjK8Q2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvAACBAH7/ANmMrwXZjK8D2YyvANmMrwDZjK8A2YyvANmMrwDZjK8G2YyvEtmMryTZjK852YyvUNmMr2jZjK9/2Yyvk9mMr6LZjK+r2YyvrdmMr6jZjK+d2YyvjNmMr3jZjK9i2YyvS9mMrzXZjK8h2YyvENmMrwHZjK8A2YyvANmMrwDZjK8AAIEAfv8A2YyvEtmMrxHZjK8P2YyvDdmMrw3ZjK8Q2YyvF9mMryLZjK8y2YyvRtmMr1/ZjK952Yyvk9mMr6zZjK/B2Yyv0dmMr9rZjK/b2Yyv1tmMr8nZjK+32YyvodmMr4nZjK9v2YyvV9mMr0HZjK8t2YyvHdmMrxDZjK8H2YyvAdmMrwAAgQB+/wDZjK8W2YyvFtmMrxXZjK8W2YyvGNmMrx7ZjK8o2YyvNtmMr0nZjK9h2YyvfNmMr5nZjK+22Yyv0NmMr+fZjK/32Yyv/9mMr//ZjK/72Yyv7dmMr9nZjK/B2YyvptmMr4rZjK9v2YyvVtmMr0HZjK8v2YyvINmMrxbZjK8P2YyvCwCBAH7/ANmMrxPZjK8T2YyvFNmMrxbZjK8b2YyvI9mMry/ZjK9A2YyvV9mMr3HZjK+P2YyvrtmMr83ZjK/p2Yyv/9mMr//ZjK//2Yyv/9mMr//ZjK//2Yyv7tmMr9PZjK+22YyvmNmMr3vZjK9g2YyvSNmMrzTZjK8k2YyvGdmMrxHZjK8NAIEAfv8A2YyvC9mMrwvZjK8N2YyvEdmMrxfZjK8h2YyvMNmMr0PZjK9c2YyveNmMr5jZjK+52Yyv2dmMr/bZjK//2Yyv/9mMr//ZjK//2Yyv/9mMr//ZjK/22Yyv2tmMr7vZjK+b2YyvfNmMr1/ZjK9G2YyvMNmMrx/ZjK8S2YyvCtmMrwYAgQB+/wDZjK8D2YyvBNmMrwbZjK8K2YyvEtmMrx3ZjK8t2YyvQtmMr1zZjK962YyvmtmMr7zZjK/d2Yyv+tmMr//ZjK//2Yyv/9mMr//ZjK//2Yyv/9mMr/XZjK/Y2Yyvt9mMr5bZjK922YyvWNmMrz3ZjK8n2YyvFdmMrwjZjK8A2YyvAACBAH7/ANmMrwDZjK8B2YyvA9mMrwjZjK8Q2YyvG9mMryzZjK9B2YyvW9mMr3nZjK+a2Yyvu9mMr9vZjK/42Yyv/9mMr//ZjK//2Yyv/9mMr//ZjK//2Yyv7tmMr9DZjK+w2YyvjtmMr23ZjK9P2YyvNdmMrx7ZjK8N2YyvANmMrwDZjK8AAIEAfv8A2YyvA9mMrwTZjK8G2YyvC9mMrxLZjK8d2YyvLdmMr0HZjK9b2YyveNmMr5fZjK+42Yyv19mMr/PZjK//2Yyv/9mMr//ZjK//2Yyv/9mMr/7ZjK/l2Yyvx9mMr6fZjK+G2YyvZtmMr0jZjK8u2YyvGdmMrwfZjK8A2YyvANmMrwAAgQB+/wDZjK8L2YyvC9mMrw3ZjK8R2YyvF9mMryHZjK8v2YyvQtmMr1rZjK912Yyvk9mMr7HZjK/P2Yyv6dmMr/7ZjK//2Yyv/9mMr//ZjK//2Yyv8dmMr9jZjK+72YyvnNmMr33ZjK9e2YyvQtmMryrZjK8W2YyvBtmMrwDZjK8A2YyvAACBAH7/ANmMrxPZjK8T2YyvFNmMrxbZjK8b2YyvI9mMry/ZjK9A2YyvVdmMr23ZjK+J2YyvpdmMr8DZjK/Y2Yyv7NmMr/jZjK/92Yyv+tmMr/DZjK/e2Yyvx9mMr6vZjK+O2YyvcdmMr1XZjK882YyvJtmMrxTZjK8G2YyvANmMrwDZjK8AAIEAfv8A2YyvFtmMrxbZjK8W2YyvF9mMrxrZjK8f2YyvKdmMrzbZjK9I2YyvXtmMr3bZjK+Q2YyvqdmMr7/ZjK/R2Yyv3NmMr+HZjK/e2Yyv1NmMr8PZjK+u2YyvldmMr3rZjK9g2YyvR9mMrzHZjK8e2YyvDtmMrwPZjK8A2YyvANmMrwAAgQB+/wDZjK8S2YyvEdmMrxDZjK8P2YyvENmMrxPZjK8Z2YyvJNmMrzPZjK9G2YyvW9mMr3LZjK+I2YyvnNmMr6zZjK+32Yyvu9mMr7jZjK+v2YyvoNmMr43ZjK932YyvX9mMr0jZjK8y2YyvH9mMrw/ZjK8D2YyvANmMrwDZjK8A2YyvAACBAH7/ANmMrwXZjK8E2YyvAdmMrwDZjK8A2YyvANmMrwLZjK8K2YyvFtmMrybZjK842YyvTNmMr2DZjK9z2YyvgdmMr4vZjK+P2YyvjdmMr4XZjK942YyvZ9mMr1PZjK8+2YyvKtmMrxjZjK8I2YyvANmMrwDZjK8A2YyvANmMrwDZjK8AAIEAfv8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvBNmMrxTZjK8m2YyvONmMr0nZjK9W2YyvYNmMr2TZjK9i2YyvW9mMr0/ZjK9A2YyvLtmMrxzZjK8L2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwAAgQB+/wDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwbZjK8X2YyvJtmMrzPZjK882YyvQNmMrz/ZjK852YyvLtmMryDZjK8Q2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvAAGBAH7/ANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwTZjK8T2YyvINmMryjZjK8s2YyvK9mMryXZjK8b2YyvDtmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8A2YyvANmMrwDZjK8Alv6h11zjL4YAAAAASUVORK5CYII=" alt="Spline preview" style="width: 100%; height: 100%;"/></spline-viewer> -->
         
         <div id="overlay" class="hidden">
             <div id="overlay-content">

@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
 
-require_once('includes/connect.php');
-
-$query = 'SELECT * FROM `media` ORDER BY `media`.`caption` ASC';
-
-$results = mysqli_query($connect, $query);
-$row = mysqli_fetch_assoc($results);
-
-?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -142,29 +133,28 @@ $row = mysqli_fetch_assoc($results);
     </header>
 
     <main>
-        <!-- CAROUSAL -->
-        <section class="carousal-sec">
-            <h2 class="hidden">Carousal</h2>
-                <ul class="col-span-full grid-con car-links">
-                    <li class="col-span-1 m-col-span-2 l-col-span-1"><a href="#">All Projects</a></li>
-                    <li class="col-start-2 col-span-1 m-col-start-4 m-col-span-2 l-col-start-2 l-col-span-1"><a href="#">Medvsa</a></li>
-                    <li class="col-start-3 col-span-1 m-col-start-6 m-col-span-2 l-col-start-3 l-col-span-1"><a href="#">Kevorka</a></li>
-                    <li class="col-start-4 col-span-1  m-col-start-8 m-col-span-2 l-col-start-4 l-col-span-1"><a href="#">Orbitz</a></li>
-                </ul>
-            <div class="carousal">
-                <div class="images-slide">
-                <?php
-                 while($row = mysqli_fetch_array($results)) {
-            echo'<img src="images/'; 
-                
-                echo $row['filename']; echo $row['filetype']; echo'">';
-            }
-            ?>
+       
+        <!-- GALLERY -->
+<section id="gallery" class="grid-con">
+    <div class="col-span-full">
+        <!-- Row 1: Dynamic Images -->
+        <div id="row1" class="gallery-row">
+            <img class="gal-image" src="images/med-scroll.jpg" alt="Enlarged Project Image">
+        </div>
 
-            </div>
-            </div>
-      
-        </section>
+        <!-- Row 2: Dynamic Images -->
+        <div id="row2" class="gallery-row">
+            <img class="gal-image" src="images/med-scroll.jpg" alt="Enlarged Project Image">
+        </div>
+
+        <!-- Row 3: Dynamic Images -->
+        <div id="row3" class="gallery-row">
+            <img class="gal-image" src="images/med-scroll.jpg" alt="Enlarged Project Image">
+        </div>
+    </div>
+</section>
+
+
         <!-- ABOUT -->
         <section id="about" class="grid-con">
             <h2 class="col-span-full" >About Me</h2>
