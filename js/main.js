@@ -164,6 +164,8 @@ backToTopBtn.addEventListener("click", function() {
 })();
 
 
+// ABOUT OVERLAY
+
 (() => {
   const aboutSection = document.querySelector("#about");
   const overlay = document.querySelector("#overlay");
@@ -185,4 +187,8 @@ backToTopBtn.addEventListener("click", function() {
   });
   
   })();
+
+
+  
+  
 
