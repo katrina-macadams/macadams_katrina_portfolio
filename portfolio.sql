@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jan 03, 2025 at 06:09 PM
+-- Generation Time: Jan 06, 2025 at 02:02 PM
 -- Server version: 8.0.35
 -- PHP Version: 8.2.20
 
@@ -86,7 +86,10 @@ INSERT INTO `media` (`id`, `filename`, `filetype`, `project_id`, `section_id`) V
 (17, 'orb-orb', '.png', 3, 26),
 (18, 'orb-purple', '.jpg', 3, 27),
 (19, 'orb-old', '.jpg', 3, 28),
-(20, 'orb-bottle', '.jpg', 3, 29);
+(20, 'orb-bottle', '.jpg', 3, 29),
+(21, 'orb-hero', 'jpg', 3, 0),
+(22, 'med-hero', 'png', 1, 0),
+(23, 'kev-hero', 'png', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -252,7 +255,7 @@ ALTER TABLE `contact_form`
 -- AUTO_INCREMENT for table `media`
 --
 ALTER TABLE `media`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `projects`

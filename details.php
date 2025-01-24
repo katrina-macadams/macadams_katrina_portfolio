@@ -20,8 +20,13 @@
     $media_query = "SELECT * FROM media WHERE project_id = {$project['id']} ORDER BY section_id ASC";
     $media_result = mysqli_query($connect, $media_query);
     $media = [];
+    $hero_image = '';
     while ($row = mysqli_fetch_assoc($media_result)) {
-        $media[$row['section_id']][] = $row;
+        if (in_array($row['id'], [21, 22, 23])) {
+            $hero_image = $row['filename'] . $row['filetype'];
+        } else {
+            $media[$row['section_id']][] = $row;
+        }
     }
     ?> 
 
@@ -56,6 +61,9 @@
 
     <!-- Hero -->
     <section class="case-hero grid-con col-span-full">
+        <div class="col-span-full hero-background">
+            <img src="images/<?php echo htmlspecialchars($project['name']); ?>-hero.png" alt="<?php echo htmlspecialchars($project['name']); ?>">
+        </div>
         <h1 class="col-span-full"><?php echo htmlspecialchars($project['name']); ?></h1>
         <h2 class="col-span-full"><?php echo htmlspecialchars($project['subtitle']); ?></h2>
         <p class="col-span-full"><?php echo htmlspecialchars($project['tagline']); ?></p>
@@ -65,18 +73,18 @@
         <!-- SECTIONS -->
         <?php while ($section = mysqli_fetch_assoc($sections_result)): ?>
             <section class="grid-con">
-                <h2 class="col-span-full"><?php echo htmlspecialchars($section['title']); ?></h2>
+                <h2 class="col-span-full cs-title"><?php echo htmlspecialchars($section['title']); ?></h2>
                 <?php if (!empty($section['tagline'])): ?>
-                    <h4 class="col-span-full"><?php echo htmlspecialchars($section['tagline']); ?></h4>
+                    <h4 class="col-span-full cs-tagline"><?php echo htmlspecialchars($section['tagline']); ?></h4>
                 <?php endif; ?>
                 <?php if ($section['content_type'] == 'bulletpoint'): ?>
                     <ul class="col-span-full">
                         <?php foreach (explode("\n", $section['content']) as $bullet): ?>
-                            <li><p><?php echo htmlspecialchars($bullet); ?></p></li>
+                            <li><p class="bullet"><?php echo htmlspecialchars($bullet); ?></p></li>
                         <?php endforeach; ?>
                     </ul>
                 <?php else: ?>
-                    <p class="col-span-full"><?php echo nl2br(htmlspecialchars($section['content'])); ?></p>
+                    <p class="col-span-full cs-content"><?php echo nl2br(htmlspecialchars($section['content'])); ?></p>
                 <?php endif; ?>
                 <?php if (isset($media[$section['id']])): ?>
                     <div class="col-span-full">
