@@ -3,16 +3,11 @@
 <head>
 
 <?php
-    require_once('includes/connect.php');
+require_once('includes/connect.php');
+$stmt = $connection->prepare('SELECT * FROM projects ORDER BY title ASC');
+$stmt->execute();
 
-    // Fetch all images
-    $query = 'SELECT media.filename, media.filetype, projects.name 
-              FROM media 
-              JOIN projects ON media.project_id = projects.id 
-              ORDER BY RAND() 
-              LIMIT 12';
-    $results = mysqli_query($connect, $query);
-    ?> 
+?>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -149,13 +144,18 @@
         <!-- GALLERY -->
         <section id="gallery" class="grid-con">
             <div class="col-span-full gallery-container">
-                <?php while ($row = mysqli_fetch_assoc($results)): ?>
+            <?php
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
                     <div class="gal-row">
-                        <a href="details.php?name=<?php echo urlencode($row['name']); ?>">
-                            <img class="gal-image" src="images/<?php echo $row['filename'] . $row['filetype']; ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
+                        <a href="details.php?name=echo urlencode($row['name']);">
+                            <img class="gal-image" src="images/ echo $row['filename'] . $row['filetype'];" alt=" echo htmlspecialchars($row['name']);">
                         </a>
                     </div>
-                <?php endwhile; ?>
+                }
+                    $stmt = null;
+
+                    ?> 
             </div>
         </section>
 
