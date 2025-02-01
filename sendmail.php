@@ -3,8 +3,8 @@
 require_once('includes/connect.php');
 
 // Gather form data
-$fname = trim($_POST['first_name']);
-$lname = trim($_POST['last_name']);
+$fname = trim($_POST['fname']);
+$lname = trim($_POST['lname']);
 $email = trim($_POST['email']);
 $message = trim($_POST['message']);
 
@@ -12,11 +12,11 @@ $errors = [];
 
 // Validate the data
 if (empty($lname)) {
-    $errors['last_name'] = 'Last Name can\'t be empty';
+    $errors['lname'] = 'Last Name can\'t be empty';
 }
 
 if (empty($fname)) {
-    $errors['first_name'] = 'First Name can\'t be empty';
+    $errors['fname'] = 'First Name can\'t be empty';
 }
 
 if (empty($message)) {
@@ -30,30 +30,35 @@ if (empty($email)) {
 }
 
 if (empty($errors)) {
-    // Correct INSERT query with proper column names
-    $query = "INSERT INTO contact_form (fname, lname, email, message) VALUES ('$fname', '$lname', '$email', '$message')";
 
-    if (mysqli_query($connect, $query)) {
+    $query = "INSERT INTO contact_form (fname,lname,email, message) 
+    VALUES (?,?,?,?)";
+    $stmt = $connection->prepare($query);
+    $stmt->bindParam(1,$_POST['fname'], PDO::PARAM_STR);
+    $stmt->bindParam(2,$_POST['lname'], PDO::PARAM_STR);
+    $stmt->bindParam(3,$_POST['email'], PDO::PARAM_STR);
+    $stmt->bindParam(4,$_POST['message'], PDO::PARAM_STR);
+
+    if ($stmt->execute()) {
         // Send email
         $to = 'katrinamacadams@proton.me';
-        $subject = 'Message from your Portfolio site!';
-        $mail_body = "You have received a new contact form submission:\n\n";
-        $mail_body .= "Name: $fname $lname\n";
-        $mail_body .= "Email: $email\n\n";
-        $mail_body .= "Message:\n$message\n";
+        $subject = 'New Contact Form Submission';
+        $message = 
+        "First Name: " . $_POST['fname'] . "\n" .
+        "Last Name: " . $_POST['lname'] . "\n" .
+        "Email: " . $_POST['email'] . "\n" .
+        "Message: " . $_POST['message'];
 
-        mail($to, $subject, $mail_body);
+        $headers = 'From: ' . $_POST['email'];
 
-        // Redirect on success
+        mail($to, $subject, $message, $headers);
+
         header('Location: index.php');
-        exit();
+        exit;
     } else {
-        echo 'Database error: ' . mysqli_error($connect);
+        $errors['database'] = 'Failed to save your message. Please try again later.';
     }
-} else {
-    foreach ($errors as $error) {
-        echo $error . '<br>';
-    }
+
+    $stmt = null;
 }
 
-?>
