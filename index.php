@@ -4,7 +4,11 @@
 
 <?php
 require_once('includes/connect.php');
-$stmt = $connection->prepare('SELECT * FROM projects ORDER BY title ASC');
+$stmt = $connection->prepare('SELECT media.filename, media.filetype, projects.name 
+              FROM media 
+              JOIN projects ON media.project_id = projects.id 
+              ORDER BY RAND() 
+              LIMIT 12');
 $stmt->execute();
 
 ?>
@@ -140,22 +144,23 @@ $stmt->execute();
     </header>
 
     <main>
-       
-        <!-- GALLERY -->
-        <section id="gallery" class="grid-con">
-            <div class="col-span-full gallery-container">
-            <?php
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    <!-- GALLERY -->
+    <section id="gallery" class="grid-con">
+        <div class="col-span-full gallery-container">
+            <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
+                <div class="gal-row">
+                    <a href="details.php?<?php echo urlencode($row['name']); ?>">
+                        <img class="gal-image" src="images/<?php echo ($row['filename'] . $row['filetype']); ?>" alt="<?php echo ($row['name']); ?>">
+                    </a>
+                </div>
+            <?php endwhile; ?>
+        </div>
+    </section>
 
-                    <div class="gal-row">
-                        <a href="details.php?name=echo urlencode($row['name']);">
-                            <img class="gal-image" src="images/ echo $row['filename'] . $row['filetype'];" alt=" echo htmlspecialchars($row['name']);">
-                        </a>
-                    </div>
-                }
-                    $stmt = null;
-
-                    ?> 
+<?php
+// Close the statement
+$stmt = null;
+?>
             </div>
         </section>
 
@@ -197,13 +202,13 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 <form action="sendmail.php" method="post" class="col-span-full grid-con">
                 <div class="col-span-2 m-col-start-4">
                     <div id="f-name" class="f-box col-span-full">
-                        <label for="first_name"></label>
-                        <input id="first_name" id="first_name" placeholder="FIRST NAME*" type="text" class="txt-w" name="first_name" >
+                        <label for="fname"></label>
+                        <input id="fname" id="fname" placeholder="FIRST NAME*" type="text" class="txt-w" name="fname" >
                     </div>
         
                     <div id="l-name" class="f-box col-start-1 col-span-full m-col-span-6">
-                        <label for="last_name"></label>
-                        <input placeholder="LAST NAME*" id="last_name" type="text" class="txt-w" name="last_name">
+                        <label for="lname"></label>
+                        <input placeholder="LAST NAME*" id="lname" type="text" class="txt-w" name="lname">
                     </div>
                     <div id="e-mail" class="f-box col-span-full m-col-start-1 m-col-span-6">
                         <label for="email"></label>

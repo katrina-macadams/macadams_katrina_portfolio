@@ -5,23 +5,31 @@
     require_once('includes/connect.php');
 
     // Get the project name from the URL
-    $project_name = mysqli_real_escape_string($connect, $_GET['name']);
+    $project_name = $_GET['name'];
 
     // Fetch project details from the database
-    $project_query = "SELECT * FROM projects WHERE name = '$project_name'";
-    $project_result = mysqli_query($connect, $project_query);
-    $project = mysqli_fetch_assoc($project_result);
+    $project_query = "SELECT * FROM projects WHERE name = :name";
+    $stmt = $connection->prepare($project_query);
+    $stmt->execute(['name' => $project_name]);
+    $project = $stmt->fetch(PDO::FETCH_ASSOC);
+    
 
     // Fetch sections for the project
-    $sections_query = "SELECT * FROM sections WHERE project_id = {$project['id']} ORDER BY id ASC";
-    $sections_result = mysqli_query($connect, $sections_query);
+    $sections_query = "SELECT * FROM sections WHERE project_id = :project_id ORDER BY id ASC";
+    $stmt = $connection->prepare($sections_query);
+    $stmt->execute(['project_id' => $project['id']]);
+    $sections_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
 
     // Fetch media for the project
-    $media_query = "SELECT * FROM media WHERE project_id = {$project['id']} ORDER BY section_id ASC";
-    $media_result = mysqli_query($connect, $media_query);
+    $media_query = "SELECT * FROM media WHERE project_id = :project_id ORDER BY section_id ASC";
+    $stmt = $connection->prepare($media_query);
+    $stmt->execute(['project_id' => $project['id']]);
+    $media_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
     $media = [];
     $hero_image = '';
-    while ($row = mysqli_fetch_assoc($media_result)) {
+    foreach ($media_result as $row) {
         if (in_array($row['id'], [21, 22, 23])) {
             $hero_image = $row['filename'] . $row['filetype'];
         } else {
@@ -39,7 +47,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
-    <title><?php echo htmlspecialchars($project['name']); ?> - Case Study</title>
+    <title><?php echo ($project['name']); ?> - Case Study</title>
+    
 </head>
 <body>
  <!-- HEADER -->
@@ -62,39 +71,39 @@
     <!-- Hero -->
     <section class="case-hero grid-con col-span-full">
         <div class="col-span-full hero-background">
-            <img src="images/<?php echo htmlspecialchars($project['name']); ?>-hero.png" alt="<?php echo htmlspecialchars($project['name']); ?>">
+            <img src="images/<?php echo ($project['name']); ?>-hero.png" alt="<?php echo ($project['name']); ?>">
         </div>
-        <h1 class="col-span-full"><?php echo htmlspecialchars($project['name']); ?></h1>
-        <h2 class="col-span-full"><?php echo htmlspecialchars($project['subtitle']); ?></h2>
-        <p class="col-span-full"><?php echo htmlspecialchars($project['tagline']); ?></p>
+        <h1 class="col-span-full"><?php echo ($project['name']); ?></h1>
+        <h2 class="col-span-full"><?php echo ($project['subtitle']); ?></h2>
+        <p class="col-span-full"><?php echo ($project['tagline']); ?></p>
     </section> 
 
     <main>
         <!-- SECTIONS -->
-        <?php while ($section = mysqli_fetch_assoc($sections_result)): ?>
+        <?php foreach ($sections_result as $section): ?>
             <section class="grid-con">
-                <h2 class="col-span-full cs-title"><?php echo htmlspecialchars($section['title']); ?></h2>
+                <h2 class="col-span-full cs-title"><?php echo ($section['title']); ?></h2>
                 <?php if (!empty($section['tagline'])): ?>
-                    <h4 class="col-span-full cs-tagline"><?php echo htmlspecialchars($section['tagline']); ?></h4>
+                    <h4 class="col-span-full cs-tagline"><?php echo ($section['tagline']); ?></h4>
                 <?php endif; ?>
                 <?php if ($section['content_type'] == 'bulletpoint'): ?>
                     <ul class="col-span-full">
                         <?php foreach (explode("\n", $section['content']) as $bullet): ?>
-                            <li><p class="bullet"><?php echo htmlspecialchars($bullet); ?></p></li>
+                            <li><p class="bullet"><?php echo ($bullet); ?></p></li>
                         <?php endforeach; ?>
                     </ul>
                 <?php else: ?>
-                    <p class="col-span-full cs-content"><?php echo nl2br(htmlspecialchars($section['content'])); ?></p>
+                    <p class="col-span-full cs-content"><?php echo nl2br(($section['content'])); ?></p>
                 <?php endif; ?>
                 <?php if (isset($media[$section['id']])): ?>
                     <div class="col-span-full">
                         <?php foreach ($media[$section['id']] as $media_item): ?>
-                            <img src="images/<?php echo $media_item['filename'] . $media_item['filetype']; ?>" alt="<?php echo htmlspecialchars($project['name']); ?>">
+                            <img src="images/<?php echo $media_item['filename'] . $media_item['filetype']; ?>" alt="<?php echo ($project['name']); ?>">
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
             </section>
-        <?php endwhile; ?>
+        <?php endforeach; ?>
 
         <!-- CONTACT -->
         <section id="contact" class="grid-con">
