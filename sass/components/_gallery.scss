@@ -1,19 +1,31 @@
-#gallery {
-  height: fit-content;
+.gal-image { 
   width: 100%;
+  height: auto;
+  transition: transform 0.8s ease;
+  aspect-ratio: 427 / 357; 
 }
 
-.gallery-container {
+.gal-image:hover {
+  transform: scale(1.05);
+}
+
+#gallery-cont {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); // 4 columns per row
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 1920px;
+  justify-items: center;
+  align-items: center;
 }
 
-.gal-row {
-  height: 290px;
+@media (max-width: 768px) {
+  #gallery-cont {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.gal-image {
-  height: 100%;
-  width: 100%;
-  object-fit: cover; // Ensures the image covers the entire area without distortion
+@media (max-width: 480px) {
+  #gallery-cont {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
