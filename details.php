@@ -68,41 +68,32 @@
         </nav>
     </header>
 
-    <!-- Hero -->
-    <section class="case-hero grid-con col-span-full">
-        <div class="col-span-full hero-background">
-            <img src="images/<?php echo ($project['name']); ?>-hero.png" alt="<?php echo ($project['name']); ?>">
-        </div>
-        <h1 class="col-span-full"><?php echo ($project['name']); ?></h1>
-        <h2 class="col-span-full"><?php echo ($project['subtitle']); ?></h2>
-        <p class="col-span-full"><?php echo ($project['tagline']); ?></p>
-    </section> 
-
+     <!-- HERO -->  
+     <section class="case-hero grid-con col-span-full">
+            <h1 class="col-span-full"><?php echo ($project['name']); ?></h1>
+            <?php foreach ($sections_result as $section): ?>
+            <h2 class="col-span-full"><?php echo ($section['content']); ?></h2>
+        </section>
+        <img id="divider" src="images/divider.svg" alt="pink-green gradient divider">
     <main>
         <!-- SECTIONS -->
-        <?php foreach ($sections_result as $section): ?>
-            <section class="grid-con">
-                <h2 class="col-span-full cs-title"><?php echo ($section['title']); ?></h2>
-                <?php if (!empty($section['tagline'])): ?>
-                    <h4 class="col-span-full cs-tagline"><?php echo ($section['tagline']); ?></h4>
-                <?php endif; ?>
-                <?php if ($section['content_type'] == 'bulletpoint'): ?>
-                    <ul class="col-span-full">
-                        <?php foreach (explode("\n", $section['content']) as $bullet): ?>
-                            <li><p class="bullet"><?php echo ($bullet); ?></p></li>
-                        <?php endforeach; ?>
-                    </ul>
-                <?php else: ?>
-                    <p class="col-span-full cs-content"><?php echo nl2br(($section['content'])); ?></p>
-                <?php endif; ?>
-                <?php if (isset($media[$section['id']])): ?>
-                    <div class="col-span-full">
-                        <?php foreach ($media[$section['id']] as $media_item): ?>
-                            <img src="images/<?php echo $media_item['filename'] . $media_item['filetype']; ?>" alt="<?php echo ($project['name']); ?>">
-                        <?php endforeach; ?>
-                    </div>
-                <?php endif; ?>
-            </section>
+
+        <section class="grid-con case-plot-l">
+      <div class="col-span-3 m-col-span-6">
+        <p class="sub-grad"><?php echo ($section['title']);?></p>
+        <?php if (!empty($section['tagline'])): ?>
+        <p class="col-span-full cs-tagline"><?php echo ($section['tagline']); ?></p>
+        <?php endif; ?>        
+        <p>The challenge was to seamlessly integrate three makeup products into a cohesive visual story while evoking the brand’s femme fatale persona. Every deliverable—from the video to the magazine spread—had to reflect the brand's boldness and captivate the target audience. </p>
+      </div>
+    </section>
+  
+    <section class="grid-con">
+      <div class="col-span-2 col-start-2 m-col-start-4 m-col-span-6">
+              <img  class="case-images" src="images/kev-board.jpg" alt="Enlarged Project Image">
+      </div>
+  </section>
+
         <?php endforeach; ?>
 
         <!-- CONTACT -->

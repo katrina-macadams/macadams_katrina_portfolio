@@ -1,14 +1,17 @@
 @use '../abstracts/variables' as v;
 
 .toggle {
-    width: 100%;
-    height:64px;
+    width: 100vw; 
+    height: 64px;
     background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: black;
+    z-index: 2;
+    filter: drop-shadow(5px 0 rgba(255, 255, 255, 0.539));
+    margin: 0; 
 }
 
 #case-butt {
@@ -16,25 +19,25 @@
     border: none;
     cursor: pointer;
 }
+
 .bottom-sheet {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    display:flex;
-    justify-content: end;
-    align-items: center;
+    display: flex;
+    justify-content: center; 
+    align-items: flex-end; 
     color: black;
     pointer-events: none;
     opacity: 0;
-    transition: 0.1s;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .bottom-sheet.show {
     opacity: 1;
     pointer-events: auto;
-
 }
 
 .bottom-sheet .sheet-overlay {
@@ -45,12 +48,13 @@
     z-index: -1;
     height: 100%;
     width: 100%;
-    background-color: black;
+    background-color: white;
     opacity: 0.2;
 }
 
 .bottom-sheet .content {
     background-color: white;
+    color: black;
     height: 25vh;
     max-height: 100vh;
     padding: 25px 30px;
@@ -64,9 +68,9 @@
     transition: 1s;
 }
 
+
 .bottom-sheet.show .content {
     transform: translateY(0);
-    transition: 1s;
 }
 
 .bottom-sheet .header {
@@ -83,28 +87,8 @@
     border-radius: 50px;
 }
 
-
 .bottom-sheet .body h2 {
     font-size: 1.05rem;
-
-}
-
-
-// Sheet Content
-
-.bottom-sheet .content {
-    background-color: white;
-    height: 25vh;
-    max-height: 100vh;
-    padding: 25px 30px;
-    width: 100%;
-    border-radius: 12px 12px 0 0;
-    padding-bottom: 200px;
-    margin-bottom: 0;
-    margin-top: 200px;
-    position: relative;
-    transform: translateY(100%);
-    transition: 1s;
 }
 
 #available {
@@ -120,14 +104,10 @@
     fill: v.$pink;
     opacity: 1;
     transition: opacity 0.8s ease-in-out;
-    -webkit-transition: opacity 0.8s ease-in-out ;
-    -moz-transition: opacity 0.8s ease-in-out;
-    -ms-transition:  opacity 0.8s ease-in-out;
-
 }
 
 #blink.fade {
-    opacity:0;
+    opacity: 0;
 }
 
 .case-direct {
@@ -141,18 +121,17 @@
 }
 
 #tools p {
- padding: 8px;
- margin-left: 8px;
- background-color: #FFE8F7 ;
- border-radius: 5px;
+    padding: 8px;
+    margin-left: 8px;
+    background-color: #FFE8F7;
+    border-radius: 5px;
 }
 
 #tools button {
     background-color: transparent;
-    border: 1px solid rgba(162, 162, 162, 0.75) ;
-    color: rgba(162, 162, 162, 0.75) ;
+    border: 1px solid rgba(162, 162, 162, 0.75);
+    color: rgba(162, 162, 162, 0.75);
     border-radius: 5px;
-    
 }
 
 #date p {
