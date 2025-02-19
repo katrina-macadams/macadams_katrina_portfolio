@@ -5,18 +5,8 @@
   padding-top: 120px;
   background-image: url("../images/contact-bckgrnd.png");
   background-size: cover;
-  height: 80vh;
+  
 }
-
-.back-to-top {
-  border-radius: 5px;
-  background-color: v.$pink;
-  opacity: 0.95;
-  padding: 24px;
-  color: #ffff;
-  cursor: pointer;
-}
-
 #contact h2 {
   margin: 48px 24px;
 }
@@ -77,13 +67,4 @@ form label {
     color:white;
   }
 
-  button {
-    background-color: transparent;
-    border: none;
-  }
-
-  button:hover {
-    background: rgb(73,149,242);
-    background: linear-gradient(90deg, rgba(73,149,242,1) 0%, rgba(198,129,255,1) 100%);
-    border-radius: 5px;
-  }
+  

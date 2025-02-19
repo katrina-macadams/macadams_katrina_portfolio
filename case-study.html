@@ -1,279 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="css/casestudy.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
     <link href="css/grid.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js" async></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js" defer></script>
+    <script src="js/gsap.min.js" defer></script>
+    <script src="js/MorphSVGPlugin.min.js" defer></script>
+    <script src="js/ScrollToPlugin.min.js" defer></script>
+    <script src="js/ScrollTrigger.min.js" defer></script>
+    
+
+    <script src="js/main.js" defer></script>
     <title>Case Study</title>
 </head>
 <body>
- <!-- HEADER -->
- <header id="main-header" class="grid-con">
-    <img id="logo" class="col-span-1" src="images/invert_logo.svg" alt="girl sitting on moon looking at star icon">
-    <h2 class="hidden">Main Navigation</h2>
-        <nav id="main-nav" class="grid-con col-start-4 m-col-start-6 m-col-span-full">
-            <label id="checkbox" class="grid-con col-start-2">
-                <input type="checkbox" id="toggleCheckbox">
-                <svg width="60" height="60" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path id="line7" d="M2 73H58" stroke="white" stroke-width="4" stroke-linecap="round" />
-                  <path id="line6" d="M2 59H58" stroke="white" stroke-width="4" stroke-linecap="round" />
-                  <path id="line5" d="M2 44H58" stroke="white" stroke-width="4" stroke-linecap="round" />
-                  <path id="darc" d="M2 27C2 27 14.6452 2 30 2C45.3548 2 58 27 58 27" stroke="white" stroke-width="4" stroke-linecap="round" />
-                </svg>
-                <svg class="checked" width="101" height="4" viewBox="0 0 101 86" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g id="portal">
-                    <path id="line3" d="M2 73L42 73" stroke="white" stroke-width="4" stroke-linecap="round" />
-                    <path id="line2" d="M12 59L42 59" stroke="white" stroke-width="4" stroke-linecap="round" />
-                    <path id="line1" d="M27 44L42 44" stroke="white" stroke-width="4" stroke-linecap="round" />
-                    <path id="arc" d="M56 84V27C56 27 56 2 77.5 2C99 2 99 27 99 27V84H56Z" stroke="white" stroke-width="3" stroke-linecap="square" />
-                  </g>
-                </svg>
-              </label>
-            <div class="grid-con col-span-full" id="burger-con">
-                <ul class="nav-menu grid-con col-span-full m-col-span-full">
-                    <li class="nav-link m-col-start-6 m-col-span-4 col-start-1 col-span-full"><a href="case-study.html">Case Studies</a></li>
-                    <li class="nav-link m-col-start-11 m-col-span-2 col-start-1 col-span-full"><a href="#">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
 
-        <!-- Hero -->
-        <section class="case-hero grid-con col-span-full">
-          <h1 class="col-span-full">Orbitz</h1>
-          <h2 class="col-span-3">Drink Product Rebrand</h2>
-          <h4 class="col-span-3">Interactive flavours and cosmic adventures in every botlle</h4>
-        </section> 
-    </header>
-  <main>
-    <section id="challenge" class="case-sec">
-      <h2>The Challenge Awaits</h2>
-      <p>What if the long forgotten brand, Orbitz, was given an update? A brand that left consumers feeling a little weird, but in a good way this time. Bring out the nostalgia of the old drink, by combining it’s space theme with a modern redesign.</p>
-      <span>_______</span>
-    </section>
-
-    <section id="services" class="case-sec">
-      <div class="role">
-        <h2>What Did I Do?</h2>
-        <p>Over the course of a semester, I redesigned the entire brand, went through variations of three dimensional bottles, and coded the new website from top to bottom. </p>
-      </div>
-      <span>_______</span>
-      <div class="service">
-        <h2>What Did I Use?</h2>
-        <p>Adobe Illustrator — Logo Design<br>
-          Adobe Photoshop — Promotional Materials<br>
-          Adobe XD — Brand/Style GuideAdobe Premiere — Promotion Reel<br>
-          Cinema4D — 3D Modelling<br>
-          HTML/CSS/JS — Coding</p>
-      </div>
-    </section>
-
-   <section class="case-images">
-    <img src="images/orb-space.jpg">
-  </section>
-
-  <section id="conflict" class="case-plot-l">
-    <h2>The Conflict</h2>
-    <p class="sub-grad">Nostalgia meets reinvention as I tackle the challenge of rebranding a drink once lost to time.</p>
-    <p>Orbitz, a 1990s drink known for its suspended orbs, failed to captivate audiences due to issues with taste, texture, and branding. This project reimagines Orbitz as a bold, modern product with updated branding and conceptual flavors while keeping its iconic orb feature. My role involved brand strategy, packaging design, web development, and storytelling. </p>
-  </section>
-
-  <section class="case-images">
-    <img src="images/orb-glass.jpg">
-  </section>
-
-  <section id="brainstorm" class="case-plot-r">
-    <h2>Searching for the One</h2>
-    <p class="sub-grad">Before landing on the final theme, I explored multiple creative directions to redefine Orbitz.</p>
-    <p>Rebranding Orbitz began with a deep dive into thematic possibilities that could revive its identity. I explored a range of concepts, from a sleek, street-style aesthetic to retro-futurism and ethereal, aura-inspired designs. Ultimately, I returned to Orbitz’s original space theme but reimagined it with a bold, adventurous, and cartoonish twist.  </p>
-  </section>
-
-  <section id="orb-3" class="brain-images">
-    <img src="images/orb-pin.png">
-  </section>
-
-  <section id="map" class="case-plot-l">
-    <h2>Mapping Out the Journey</h2>
-    <p class="sub-grad">This rebranding demanded a careful balance of nostalgia and modernity.</p>
-    <div class="bullet">
-        <?xml version="1.0" encoding="UTF-8"?>
-        <svg id="star" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 71 91">
-          <defs>
-            <style>
-              .st0, .st1 {
-                fill: #fff;
-                stroke: #fff;
-              }
+    <!-- HEADER -->
+    <header id="main-header" class="grid-con">
+        <img id="logo" class="col-span-1" src="images/invert_logo.svg" alt="girl sitting on moon looking at star icon">
+        <h2 class="hidden">Main Navigation</h2>
+            <nav id="main-nav" class="grid-con col-start-4 m-col-start-6 m-col-span-full">
+                <label id="checkbox" class="grid-con col-start-2">
+                    <input type="checkbox" id="toggleCheckbox">
+                    <svg width="60" height="60" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path id="line7" d="M2 73H58" stroke="white" stroke-width="4" stroke-linecap="round" />
+                      <path id="line6" d="M2 59H58" stroke="white" stroke-width="4" stroke-linecap="round" />
+                      <path id="line5" d="M2 44H58" stroke="white" stroke-width="4" stroke-linecap="round" />
+                      <path id="darc" d="M2 27C2 27 14.6452 2 30 2C45.3548 2 58 27 58 27" stroke="white" stroke-width="4" stroke-linecap="round" />
+                    </svg>
+                    <svg class="checked" width="101" height="4" viewBox="0 0 101 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g id="portal">
+                        <path id="line3" d="M2 73L42 73" stroke="white" stroke-width="4" stroke-linecap="round" />
+                        <path id="line2" d="M12 59L42 59" stroke="white" stroke-width="4" stroke-linecap="round" />
+                        <path id="line1" d="M27 44L42 44" stroke="white" stroke-width="4" stroke-linecap="round" />
+                        <path id="arc" d="M56 84V27C56 27 56 2 77.5 2C99 2 99 27 99 27V84H56Z" stroke="white" stroke-width="3" stroke-linecap="square" />
+                      </g>
+                    </svg>
+                  </label>
+                <div class="grid-con col-span-full" id="burger-con">
+                    <ul class="nav-menu grid-con col-span-full m-col-span-full">
+                        <li class="nav-link m-col-start-4 m-col-span-2 col-start-1 col-span-full"><a href="#about">About</a></li>
+                        <li class="nav-link m-col-start-6 m-col-span-4 col-start-1 col-span-full"><a href="case-study.html">Case Studies</a></li>
+                        <li class="nav-link m-col-start-11 m-col-span-2 col-start-1 col-span-full"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
         
-              .st1 {
-                stroke-miterlimit: 10;
-              }
-            </style>
-          </defs>
-          <path class="st1" d="M35.5,57.8c-6.6,0-12-5.5-12-12.3s5.4-12.3,12-12.3,12,5.5,12,12.3-5.4,12.3-12,12.3Z"/>
-          <path class="st0" d="M35.5,57.3c-6.3,0-11.5-5.3-11.5-11.8s5.2-11.8,11.5-11.8,11.5,5.3,11.5,11.8-5.2,11.8-11.5,11.8Z"/>
-        </svg>
-        <p>Create a cohesive brand story rooted in nostalgia but updated for today’s market.</p>
-    </div>
-  </section>
+    <main>
+           <!-- HERO -->  
+           <section id="hero" class="grid-con">
+            <div class=" hero-text col-span-full m-col-span-6">
+                <h1>Kevorka</h1>
+                <h2>What if your makeup could command the room like a queen on the chessboard? Have an aura of danger, and be packaged in sleek, yet confidently radiant designs. Her name is Kevorka.  </h2>
+            </div>  
+        </section>
+        <img id="divider" src="images/divider.svg" alt="pink-green gradient divider">
 
-
-  <section class="brain-images">
-    <img src="images/orb-orb.png">
-  </section>
-
-  <section id="ideas" class="case-plot-r">
-    <h2>Searching for the One</h2>
-    <p class="sub-grad">From outdated to extraordinary, every element of Orbitz was reimagined step by step.</p>
-    <p>Initial sketches focused on clean, futuristic packaging that highlighted the drink’s floating orbs as a feature, not a flaw. Inspiration was drawn from celestial motifs to evoke a sense of wonder. High-fidelity designs incorporated bold typography and playful flavor names, creating a product that felt vibrant and premium. </p>
-  </section>
-
-  <section class="case-images">
-    <img src="images/orb-purple.jpg">
-  </section>
-
-  <section id="testing" class="case-plot-l">
-    <h2>Testing the Magic</h2>
-    <p class="sub-grad">Feedback helped refine the rebranding into a cohesive, compelling product.</p>
-    <p>Feedback from professors, family, and friends were crucial in developing the consistent direction and interesting style for Orbitz. With over 15 sketches of logo concepts,  and two different bottle versions, I eventually was able to come to a finalized version that satisfied the modern rebrand. During this process, I learned a lot about target audiences and the importance of ensuring that my message was consistently on brand. </p>
-  </section>
-
-  <section class="case-images">
-    <img src="images/orb-old.jpg">
-  </section>
-
-  <section id="ideas" class="case-plot-r">
-    <h2>The Destination</h2>
-    <p class="sub-grad">Strategic execution and cohesive design made this project a triumph.</p>
-    <p>This project demonstrated the power of storytelling in branding and marketing. By combining narrative elements with sleek 3D design, the campaign elevated the makeup products beyond their functional purpose, aligning them with a larger, aspirational identity. The process honed my skills in 3D modeling, animation, and cross-platform branding. </p>
-  </section>
-
-  <section class="case-images">
-    <img src="images/orb-bottle.jpg">
-  </section>
-
-  <section id="reflection" class="case-sec">
-    <h2>Reflection on the Journey</h2>
-    <p>The project emphasized the importance of storytelling in Motion/UI/UX design. I learned to balance functionality with branding, ensuring every user interaction felt purposeful and engaging. The iterative process also strengthened my skills in coding and animation.</p>
-  </section>
-
-     <!-- VIDEO -->
-     <h2 class="hidden">Video Section</h2>
-     <div id="orb-player" class="col-span-full m-col-span-full l-col-span-full">
-         <video controls preload="metadata">
-             <source src="videos/demoreel.mp4" type="video/mp4">
-             <source src="videos/demoreel.webm" type="video/webm">
-             Your browser does not support the video. 
-         </video>
-     </div>
- </section>
-
- <!-- CONTACT -->
- <section id="contact" class="grid-con">
-  <h2 class="col-start-2 col-span-full m-col-start-5 m-col-span-4">Begin Your Story Today</h2>
-      <form action="#" method="post" enctype="text/plain" class="col-span-full grid-con">
-      <div class="col-span-2">
-          <div id="f-name" class="f-box col-span-full m-col-span-6">
-              <label for="name"></label>
-              <input placeholder="FIRST NAME*" type="text" class="txt-w">
+        <section id="services" class="case-sec">
+          <div class="role">
+            <h2>What Did I Do?</h2>
+            <p>Over the course of a semester, I redesigned the entire brand, went through variations of three dimensional bottles, and coded the new website from top to bottom. </p>
           </div>
+        </section>
 
-          <div id="l-name" class="f-box col-start-1 col-span-full m-col-span-6">
-              <label for="name"></label>
-              <input placeholder="LAST NAME*"  type="text" class="txt-w">
-          </div>
-          <div id="e-mail" class="f-box col-span-full m-col-start-1 m-col-span-6">
-              <label for="mail"></label>
-              <input placeholder="EMAIL*"  type="email" class="txt-w">
-          </div>
+        <!-- IMAGE 2 -->
+    <section class="grid-con">
+        <div class="col-span-2 col-start-2 m-col-start-4 m-col-span-6">
+                <img  class="case-images" src="images/kev-cherry.jpeg" alt="Enlarged Project Image">
+        </div>
+    </section>
 
+    <section class="grid-con case-plot-l">
+      <div class="col-span-3 m-col-span-6">
+        <h2>The Conflict</h2>
+        <p class="sub-grad">Nostalgia meets reinvention as I tackle the challenge of rebranding a drink once lost to time.</p>
+        <p>The challenge was to seamlessly integrate three makeup products into a cohesive visual story while evoking the brand’s femme fatale persona. Every deliverable—from the video to the magazine spread—had to reflect the brand's boldness and captivate the target audience. </p>
       </div>
-          <div class="f-box col-start-3 col-span-2 m-col-start-7 m-col-span-6">
-              <label for="message"></label>
-              <textarea placeholder="MESSAGE"  id="message" rows="2" class="txt-w"></textarea>
-          </div>
+    </section>
+  
+    <section class="grid-con">
+      <div class="col-span-2 col-start-2 m-col-start-4 m-col-span-6">
+              <img  class="case-images" src="images/kev-board.jpg" alt="Enlarged Project Image">
+      </div>
+  </section>
+  
+    <section class="grid-con case-plot-r">
+      <div class="col-start-2 col-span-3 m-col-start-7 m-col-span-6">
+        <h2>The Destination</h2>
+        <p class="sub-grad">Strategic execution and cohesive design made this project a triumph.</p>
+        <p>Rebranding Orbitz began with a deep dive into thematic possibilities that could revive its identity. I explored a range of concepts, from a sleek, street-style aesthetic to retro-futurism and ethereal, aura-inspired designs. Ultimately, I returned to Orbitz’s original space theme but reimagined it with a bold, adventurous, and cartoonish twist.  </p>
+      </div>
+    </section>
+  
+    <section class="grid-con">
+      <div class="col-span-2 col-start-2 m-col-start-4 m-col-span-6">
+              <img  class="case-images" src="images/kev-mirror.jpeg" alt="Enlarged Project Image">
+      </div>
+  </section>
+  
+        <!-- VIDEO -->
+         <section id="video-player">
+            <h2 class="hidden col-span-full">Video Section</h2>
+            <video controls preload="metadata">
+                <source src="videos/demoreel.mp4" type="video/mp4">
+                <source src="videos/demoreel.webm" type="video/webm">
+                Your browser does not support the video. 
+            </video>
+        </section>
 
-          <div class="button col-start-3 col-span-1 m-col-start-7 m-col-span-2">
-              <input id="submit" type="button" value="Send">
-          </div>
-      </form>
-</section>
 
-  <!-- CASE STUDY TOGGLE -->
-  <section id="case-toggle" class="grid-con">
-    <div class="toggle col-span-full">
-       <button id="case-butt"><?xml version="1.0" encoding="UTF-8"?>
-        <svg id="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.65 19.59">
-          <defs>
-            <style>
-              .cls-1 {
-                fill: none;
-                stroke: #fff;
-                stroke-linecap: round;
-                stroke-linejoin: round;
-                stroke-width: 1.5px;
-              }
-            </style>
-          </defs>
-          <path class="cls-1" d="M28.9,18.84L14.82.75.75,18.84"/>
-        </svg>
-    </button> 
-    <div><h4> Case Studies</h4></div>
-    </div>
-            <div class="bottom-sheet">
-                <div class="sheet-overlay"></div>
-                <div class="content">
-                    <div class="header">
-                        <div class="drag-icon"></div>
+        <!-- CONTACT -->
+        <section id="contact" class="grid-con">
+            <h2 class="col-start-2 col-span-full m-col-start-5 m-col-span-4">Begin Your Story Today</h2>
+                <form action="sendmail.php" method="post" class="col-span-full grid-con">
+                <div class="col-span-2 m-col-start-4">
+                    <div id="f-name" class="f-box col-span-full">
+                        <label for="first_name"></label>
+                        <input id="first_name" id="first_name" placeholder="FIRST NAME*" type="text" class="txt-w" name="first_name" >
                     </div>
-                    <div class="body">
-                        <div id="available">
-                            <svg id="blink" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-                                <ellipse cx="50" cy="50" rx="50" ry="50" />
-                              </svg>
-                        <h4>Available for Internship</h4>
+        
+                    <div id="l-name" class="f-box col-start-1 col-span-full m-col-span-6">
+                        <label for="last_name"></label>
+                        <input placeholder="LAST NAME*" id="last_name" type="text" class="txt-w" name="last_name">
+                    </div>
+                    <div id="e-mail" class="f-box col-span-full m-col-start-1 m-col-span-6">
+                        <label for="email"></label>
+                        <input placeholder="EMAIL*" name="email"  id="email" type="email" class="txt-w">
+                    </div>
+    
+                </div>
+                    <div class="f-box col-start-3 col-span-2 m-col-start-7 m-col-span-6">
+                        <label for="message"></label>
+                        <textarea class="txt-w" placeholder="MESSAGE"  id="message"  name="message" rows="2"></textarea>
+                    </div>
+
+                    <div class="button col-start-3 col-span-1 m-col-start-7 m-col-span-2">
+                        <button>
+                            <input id="submit" type="submit" value="SEND" class="text-w">
+                        </button>
+                    </div>
+                    <section id="feedback"><p>*Please fill out all required sections</p></section>
+                </form>
+
+                <!-- Back to Top Button -->
+                <button class="btn col-span-2" id="backToTopBtn"> <span>↑ Back to Top</span> </button>
+        </section>
+
+       
+
+        <!-- CASE STUDY TOGGLE -->
+    <section id="case-toggle">
+        <div class="toggle">
+           <button id="case-butt"><svg id="arrow" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 37 26">
+            <defs>
+              <style>
+                .st0 {
+                  fill: none;
+                  stroke: #040047;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-width: 1.5px;
+                }
+              </style>
+            </defs>
+            <path class="st0" d="M32.9,21.2L18.8,3.1,4.7,21.2"/>
+          </svg>
+        </button> 
+        <div><h4> Case Studies</h4></div>
+        </div>
+                <div class="bottom-sheet">
+                    <div class="sheet-overlay"></div>
+                    <div class="content">
+                        <div class="header">
+                            <div class="drag-icon"></div>
                         </div>
-                        <div class="case-direct">
-                            <div id="studies">
-                                <h2>Case Studies</h2>
-                                <ul>
-                                    <li><a href="">Medvsa</a></li>
-                                </ul>
+                        <div class="body">
+                            <div id="available">
+                                <svg id="blink" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                                    <ellipse cx="50" cy="50" rx="50" ry="50" />
+                                  </svg>
+                            <h4>Available for Internship</h4>
                             </div>
-                            <div id="tools">
-                                <h2>Tools</h2>
-                                <div class="filter">
-                                    <button>Front-End</button>
+                            <div class="case-direct">
+                                <div id="studies">
+                                    <h2>Case Studies</h2>
+                                    <ul>
+                                        <li><a href="">Medvsa</a></li>
+                                    </ul>
                                 </div>
-                            <p>Front-End</p>
-                            </div>
-                            <div id="date">
-                                <h2>Completed</h2>
-                                <p>November 2024</p>
+                                <div id="tools">
+                                    <h2>Tools</h2>
+                                    <div class="filter">
+                                        <button>Front-End</button>
+                                    </div>
+                                <p>Front-End</p>
+                                </div>
+                                <div id="date">
+                                    <h2>Completed</h2>
+                                    <p>November 2024</p>
+                                </div>
                             </div>
                         </div>
-                   
-                        
                     </div>
                 </div>
-            </div>
-</section>
+    </section>
+    </main>
+    <footer> 
+    </footer>
+   
 
-            
-  </main>
-    
-  <footer></footer>
-
-  <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script> 
-    <script src="js/gsap.min.js"></script>
-    <script src="js/MorphSVGPlugin.min.js"></script>
-    <script src="js/main.js"></script>
 </body>
-
-
 </html>
+
