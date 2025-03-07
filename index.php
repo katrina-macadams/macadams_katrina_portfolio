@@ -24,13 +24,11 @@ $stmt->execute();
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js" async></script>
     <script src="https://cdn.plyr.io/3.7.8/plyr.js" defer></script>
-    <script src="js/gsap.min.js" defer></script>
-    <script src="js/MorphSVGPlugin.min.js" defer></script>
-    <script src="js/ScrollToPlugin.min.js" defer></script>
-    <script src="js/ScrollTrigger.min.js" defer></script>
-    
-
-    <script src="js/main.js" defer></script>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <script src="js/MorphSVGPlugin.min.js"></script>
+    <script src="js/ScrollToPlugin.min.js"></script>
+    <script type="module" src="js/main.js" defer></script>
     <title>Portfolio</title>
 </head>
 <body>
