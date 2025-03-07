@@ -7,6 +7,7 @@ import { backToTop } from './modules/backToTop.js';
 import { formValidation } from './modules/formValidation.js';
 import { heroAnimation } from './modules/heroAnimation.js';
 
+
 toggleCheckbox();
 bottomSheet();  
 blink();
@@ -15,5 +16,6 @@ scrollTo();
 backToTop();
 formValidation();
 heroAnimation();
+
 
 console.log('JS IS RUNNING');

@@ -28,6 +28,7 @@ $stmt->execute();
     <script src="js/ScrollTrigger.min.js"></script>
     <script src="js/MorphSVGPlugin.min.js"></script>
     <script src="js/ScrollToPlugin.min.js"></script>
+    <script src="js/SplitText.min.js"></script>
     <script type="module" src="js/main.js" defer></script>
     <title>Portfolio</title>
 </head>
@@ -68,7 +69,9 @@ $stmt->execute();
           <section id="hero" class="grid-con">
             <div class=" hero-text col-span-full m-col-span-6">
                 <h1>Hi There! <br> I'm Katrina</h1>
+                <h2 id="creative-text" class="creative-text">Creative Motion</h2>
                 <h2>A motion designer and... sometimes a developer. I specialize as an out-of-the box thinker. I like to have fun while I tell your story through motion and bring out the magic in everyone!</h2>
+                
             </div>  
         </section>
         <img id="divider" src="images/divider.svg" alt="pink-green gradient divider">
@@ -96,7 +99,7 @@ $stmt = null;
         </section>
 
       <!-- ABOUT -->
-      <section id="about" class="grid-con">
+        <section id="about" class="grid-con">
             <h2 class="col-span-full m-col-start-6 m-col-span-7">About Me</h2>
             <p class="col-span-full m-col-start-6 m-col-span-7" id="about-content">
                 Hi, I’m Katrina MacAdams—a web developer with a heart that beats for motion and a mind that thrives on weaving creativity and code into something magical. I’ve always been a writer at my core, crafting limitless worlds and stories in my head. Motion design and web development have become my medium to tell stories beyond ink and paper...
