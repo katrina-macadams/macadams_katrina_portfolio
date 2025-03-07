@@ -1,42 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php
-    require_once('includes/connect.php');
+<?php
+require_once('includes/connect.php');
 
-    // Get the project name from the URL
-    $project_name = $_GET['name'];
+// Get the project name from the URL
+$project_name = $_GET['name'];
 
-    // Fetch project details from the database
-    $project_query = "SELECT * FROM projects WHERE name = :name";
-    $stmt = $connection->prepare($project_query);
-    $stmt->execute(['name' => $project_name]);
-    $project = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+// Fetch project details
+$project_query = "SELECT * FROM projects WHERE name = :name";
+$stmt = $connection->prepare($project_query);
+$stmt->execute(['name' => $project_name]);
+$project = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Fetch sections for the project
-    $sections_query = "SELECT * FROM sections WHERE project_id = :project_id ORDER BY id ASC";
-    $stmt = $connection->prepare($sections_query);
-    $stmt->execute(['project_id' => $project['id']]);
-    $sections_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
+// Fetch sections for the project
+$sections_query = "SELECT * FROM sections WHERE project_id = :project_id ORDER BY id ASC";
+$stmt = $connection->prepare($sections_query);
+$stmt->execute(['project_id' => $project['id']]);
+$sections = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    // Fetch media for the project
-    $media_query = "SELECT * FROM media WHERE project_id = :project_id ORDER BY section_id ASC";
-    $stmt = $connection->prepare($media_query);
-    $stmt->execute(['project_id' => $project['id']]);
-    $media_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
-    $media = [];
-    $hero_image = '';
-    foreach ($media_result as $row) {
-        if (in_array($row['id'], [21, 22, 23])) {
-            $hero_image = $row['filename'] . $row['filetype'];
-        } else {
-            $media[$row['section_id']][] = $row;
-        }
-    }
-    ?> 
+// Fetch media for the project
+$media_query = "SELECT * FROM media WHERE project_id = :project_id ORDER BY id ASC";
+$stmt = $connection->prepare($media_query);
+$stmt->execute(['project_id' => $project['id']]);
+$media = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,7 +35,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
-    <title><?php echo ($project['name']); ?> - Case Study</title>
+    <title><?php echo htmlspecialchars($project['name']); ?> - Case Study</title>
     
 </head>
 <body>
@@ -68,33 +56,39 @@
         </nav>
     </header>
 
-     <!-- HERO -->  
-     <section class="case-hero grid-con col-span-full">
-            <h1 class="col-span-full"><?php echo ($project['name']); ?></h1>
-            <?php foreach ($sections_result as $section): ?>
-            <h2 class="col-span-full"><?php echo ($section['content']); ?></h2>
-        </section>
-        <img id="divider" src="images/divider.svg" alt="pink-green gradient divider">
-    <main>
-        <!-- SECTIONS -->
-
-        <section class="grid-con case-plot-l">
-      <div class="col-span-3 m-col-span-6">
-        <p class="sub-grad"><?php echo ($section['title']);?></p>
-        <?php if (!empty($section['tagline'])): ?>
-        <p class="col-span-full cs-tagline"><?php echo ($section['tagline']); ?></p>
-        <?php endif; ?>        
-        <p>The challenge was to seamlessly integrate three makeup products into a cohesive visual story while evoking the brand’s femme fatale persona. Every deliverable—from the video to the magazine spread—had to reflect the brand's boldness and captivate the target audience. </p>
-      </div>
+    <!-- Hero Section -->
+    <section class="case-hero grid-con col-span-full">
+        <h1 class="col-span-full"><?php echo ($project['name']); ?></h1>
+        <h2 class="col-span-full"><?php echo ($project['description']); ?></h2>
     </section>
-  
-    <section class="grid-con">
-      <div class="col-span-2 col-start-2 m-col-start-4 m-col-span-6">
-              <img  class="case-images" src="images/kev-board.jpg" alt="Enlarged Project Image">
-      </div>
-  </section>
 
-        <?php endforeach; ?>
+    <main>
+        <div class="grid-con case-sections">
+            <?php 
+            // Loop through sections
+            foreach ($sections as $index => $section): 
+                // Get media for each section
+                $section_media = array_slice($media, $index * 2, 2);
+            ?>
+            <div class="col-span-6 section-container">
+                <div class="section-content">
+                    <h3 class="sub-grad"><?php echo htmlspecialchars($section['title']); ?></h3>
+                    <?php if (!empty($section['tagline'])): ?>
+                        <p class="cs-tagline"><?php echo htmlspecialchars($section['tagline']); ?></p>
+                    <?php endif; ?>
+                    <div class="section-text <?php echo $section['content_type']; ?>">
+                        <?php echo htmlspecialchars($section['content']); ?>
+                    </div>
+                </div>
+                <div class="section-media">
+                    <?php foreach ($section_media as $media_item): ?>
+                        <img class="case-images" src="images/<?php echo htmlspecialchars($media_item['filename'] . $media_item['filetype']); ?>" 
+                             alt="<?php echo htmlspecialchars($project['name']); ?> image">
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
 
         <!-- CONTACT -->
         <section id="contact" class="grid-con">

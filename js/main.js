@@ -254,8 +254,8 @@ backToTopBtn.addEventListener("click", function() {
         event.preventDefault();
         // console.log("regForm Called");
         const thisform = event.currentTarget;
-        const url = "adduser.php";
-        const formdata = `lname=${thisform.elements.lname.value}&fname=${thisform.elements.fname.value}&email=${thisform.elements.email.value}&city=${thisform.elements.city.value}`;
+        const url = "sendmail.php";
+        const formdata = `lname=${thisform.elements.lname.value}&fname=${thisform.elements.fname.value}&email=${thisform.elements.email.value}&message=${thisform.elements.message.value}`;
         console.log(formdata); 
         // this is the data that we are going to send to the server
         // const called formdata, capture everything in the form and then make an ajax call and then empty the form. value is going to be what the user has typed onto the lname field 
@@ -299,6 +299,62 @@ backToTopBtn.addEventListener("click", function() {
 
 })();
 
+
+
   
   
 
+(()=>{
+	const form = document.querySelector("#userForm");
+    const feedBack = document.querySelector("#feedback");
+
+    form.addEventListener("submit", regForm);
+
+    function regForm(event){
+        event.preventDefault();
+        // console.log("regForm Called");
+        const thisform = event.currentTarget;
+        const url = "sendmail.php";
+        const formdata = `lname=${thisform.elements.lname.value}&fname=${thisform.elements.fname.value}&email=${thisform.elements.email.value}&message=${thisform.elements.message.value}`;
+        console.log(formdata); 
+        // this is the data that we are going to send to the server
+        // const called formdata, capture everything in the form and then make an ajax call and then empty the form. value is going to be what the user has typed onto the lname field 
+
+        fetch(url, {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: formdata 
+        })
+        .then(response => response.json())
+        .then(response => {
+            console.log(response); 
+            feedBack.innerHTML = "";
+            if(response.errors) {
+                response.errors.forEach(error => {
+                    const errorElement = document.createElement("p");
+                    errorElement.textContent = error;
+                    feedBack.appendChild(errorElement); 
+                })
+            }
+            else {
+                form.reset();
+                const messageElement = document.createElement("p");
+            }
+            feedBack.scrollIntoView({behavior: 'smooth', block: 'end'})
+        })
+        .catch(error => {
+            const errorMessage = document.createElement("p");
+            errorMessage.textContent = "There was an error with the server, please try again later";
+            feedBack.appendChild(errorMessage);
+        });
+
+
+
+    }
+
+    form.addEventListener("submit", regForm);
+
+
+})();
