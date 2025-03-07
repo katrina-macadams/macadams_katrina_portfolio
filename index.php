@@ -4,11 +4,15 @@
 
 <?php
 require_once('includes/connect.php');
-$stmt = $connection->prepare('SELECT media.filename, media.filetype, projects.name 
-              FROM media 
-              JOIN projects ON media.project_id = projects.id 
-              ORDER BY RAND() 
-              LIMIT 3');
+$stmt = $connection->prepare('SELECT media.filename, media.filetype, projects.name FROM media
+            JOIN projects ON media.project_id = projects.id 
+            WHERE media.id IN (
+            SELECT MIN(id) 
+            FROM media 
+            WHERE project_id IN (1, 2, 3)
+            GROUP BY project_id
+    )
+');
 $stmt->execute();
 
 ?>
@@ -29,7 +33,7 @@ $stmt->execute();
     <script src="js/MorphSVGPlugin.min.js"></script>
     <script src="js/ScrollToPlugin.min.js"></script>
     <script src="js/SplitText.min.js"></script>
-    <script type="module" src="js/main.js" defer></script>
+    <script type="module" src="js/home.js" defer></script>
     <title>Portfolio</title>
 </head>
 <body>
@@ -82,9 +86,14 @@ $stmt->execute();
     <div id="gallery-cont" class="col-span-full">
             <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
                 <div class="gal-row">
-                    <a href="details.php?name=<?php echo urlencode($row['name']); ?>">
-                        <img class="gal-image" src="images/<?php echo ($row['filename'] . $row['filetype']); ?>" alt="<?php echo ($row['name']); ?>">
-                    </a>
+                    <div class="gal-card">
+                        <a href="details.php?name=<?php echo urlencode($row['name']); ?>">
+                            <img class="gal-image" src="images/<?php echo ($row['filename'] . $row['filetype']); ?>" alt="<?php echo ($row['name']); ?>">
+                            <div class="gal-content">
+                            <h3><?php echo ($row['name']); ?></h3>
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
             <?php endwhile; ?>
@@ -122,7 +131,7 @@ $stmt = null;
         <!-- VIDEO -->
             <h2 class="hidden">Video Section</h2>
             <div id="video-player" class="col-span-full m-col-span-full l-col-span-full">
-                <video controls preload="metadata">
+            <video id="player" playsinline controls data-poster="images/poster.jpg">
                     <source src="videos/demoreel.mp4" type="video/mp4">
                     <source src="videos/demoreel.webm" type="video/webm">
                     Your browser does not support the video. 

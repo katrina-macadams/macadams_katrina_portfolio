@@ -1,0 +1,9 @@
+<?php
+$dsn = "mysql:host=localhost;dbname=tmearjk7_portfolio;charset=utf8mb4"; -->
+try {
+$connection = new PDO($dsn, 'tmearjk7_general-user', 'Luster8-Cytoplast5-Makeshift4-Lyricism0-Equity1');
+this creates a PDO object 
+} catch (Exception $e) {
+  error_log($e->getMessage());
+  exit('unable to connect');
+}

@@ -18,6 +18,38 @@
   align-items: center;
 }
 
+
+
+.gal-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+  width: 300px; 
+  text-align: center;
+}
+
+.gal-card:hover {
+  transform: translateY(-10px);
+}
+
+.gal-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gal-content {
+  padding: 16px;
+}
+
+.gal-content h3 {
+  margin: 0;
+  font-size: 1.25em;
+  color: #333;
+}
+
 @media (max-width: 768px) {
   #gallery-cont {
     grid-template-columns: repeat(3, 1fr);
