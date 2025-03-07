@@ -1,6 +1,12 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 require_once('includes/connect.php');
+
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
 
 // Gather form data
 $fname = trim($_POST['fname']);
@@ -12,53 +18,50 @@ $errors = [];
 
 // Validate the data
 if (empty($lname)) {
-    $errors['lname'] = 'Last Name can\'t be empty';
+    $errors[] = 'Last Name can\'t be empty';
 }
 
 if (empty($fname)) {
-    $errors['fname'] = 'First Name can\'t be empty';
+    $errors[] = 'First Name can\'t be empty';
 }
 
 if (empty($message)) {
-    $errors['message'] = 'Message field can\'t be empty';
+    $errors[] = 'Message field can\'t be empty';
 }
 
 if (empty($email)) {
-    $errors['email'] = 'You must provide an email';
+    $errors[] = 'You must provide an email';
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors['legit_email'] = 'You must provide a valid email';
+    $errors[] = 'You must provide a valid email';
 }
 
 if (empty($errors)) {
-
-    $query = "INSERT INTO contact_form (fname,lname,email, message) 
-    VALUES (?,?,?,?)";
+    $query = "INSERT INTO contact_form (fname, lname, email, message) VALUES (?, ?, ?, ?)";
     $stmt = $connection->prepare($query);
-    $stmt->bindParam(1,$_POST['fname'], PDO::PARAM_STR);
-    $stmt->bindParam(2,$_POST['lname'], PDO::PARAM_STR);
-    $stmt->bindParam(3,$_POST['email'], PDO::PARAM_STR);
-    $stmt->bindParam(4,$_POST['message'], PDO::PARAM_STR);
+    $stmt->bindParam(1, $fname, PDO::PARAM_STR);
+    $stmt->bindParam(2, $lname, PDO::PARAM_STR);
+    $stmt->bindParam(3, $email, PDO::PARAM_STR);
+    $stmt->bindParam(4, $message, PDO::PARAM_STR);
 
     if ($stmt->execute()) {
         // Send email
         $to = 'katrinamacadams@proton.me';
         $subject = 'New Contact Form Submission';
-        $message = 
-        "First Name: " . $_POST['fname'] . "\n" .
-        "Last Name: " . $_POST['lname'] . "\n" .
-        "Email: " . $_POST['email'] . "\n" .
-        "Message: " . $_POST['message'];
+        $email_message = 
+        "First Name: " . $fname . "\n" .
+        "Last Name: " . $lname . "\n" .
+        "Email: " . $email . "\n" .
+        "Message: " . $message;
 
-        $headers = 'From: ' . $_POST['email'];
+        $headers = 'From: ' . $email;
 
-        mail($to, $subject, $message, $headers);
+        mail($to, $subject, $email_message, $headers);
 
-        header('Location: index.php');
-        exit;
+        echo json_encode(["message" => "Form submitted successfully."]);
     } else {
-        $errors['database'] = 'Failed to save your message. Please try again later.';
+        echo json_encode(["errors" => ["Failed to save your message. Please try again later."]]);
     }
-
-    $stmt = null;
+} else {
+    echo json_encode(["errors" => $errors]);
 }
-
+?>

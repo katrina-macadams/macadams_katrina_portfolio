@@ -164,7 +164,6 @@ $stmt = null;
                 <button class="btn back-to-top col-span-2" id="backToTopBtn">↑ Back to Top</button>
         </section>
 
-       
 
         <!-- CASE STUDY TOGGLE -->
     <section id="case-toggle" class="grid-con">
