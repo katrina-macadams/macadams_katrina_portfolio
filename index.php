@@ -62,7 +62,7 @@ $stmt->execute();
                 <div class="grid-con col-span-full" id="burger-con">
                     <ul class="nav-menu grid-con col-span-full m-col-span-full">
                         <li class="nav-link m-col-start-4 m-col-span-2 col-start-1 col-span-full"><a href="#about">About</a></li>
-                        <li class="nav-link m-col-start-6 m-col-span-4 col-start-1 col-span-full"><a href="case-study.html">Case Studies</a></li>
+                        <li class="nav-link m-col-start-6 m-col-span-4 col-start-1 col-span-full"><a href="#gallery">Case Studies</a></li>
                         <li class="nav-link m-col-start-11 m-col-span-2 col-start-1 col-span-full"><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -78,6 +78,9 @@ $stmt->execute();
                 
             </div>  
         </section>
+
+        <button id="anecdote"><span id="anecdote-tex">🌸 Tell Me an anecdote</span></button>
+        <div id="speech-bubble" class="hidden"></div>
         <img id="divider" src="images/divider.svg" alt="pink-green gradient divider">
 
     <main>
