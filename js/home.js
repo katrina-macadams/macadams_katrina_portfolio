@@ -7,7 +7,8 @@ import { backToTop } from './modules/backToTop.js';
 import { formValidation } from './modules/formValidation.js';
 import { heroAnimation } from './modules/heroAnimation.js';
 import { caseBlur } from './modules/caseBlur.js';
-import {anecdote} from './modules/anecdote.js';
+import { anecdote } from './modules/anecdote.js';
+import { lily } from './modules/lily.js';
 
 toggleCheckbox();
 bottomSheet();  
@@ -19,6 +20,7 @@ formValidation();
 heroAnimation();
 caseBlur();
 anecdote();
+lily();
 
 
 

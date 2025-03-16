@@ -2,19 +2,38 @@
     text-align: left;
     flex-wrap: wrap;
     margin: 12px 28px 24px 28px;
+    position: relative;
+    width: 100vw;
+    height: 80vh;   
+}
+
+#lily {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1; 
 }
 
 
 #hero h1, h2 {
+    position: relative;
+    z-index: 1; 
     margin: 28px 0px;
     text-shadow: 0 0 9px #ff69a0c3;
 }
 
 #hero h3 {
+    position: relative;
+    z-index: 1; 
     line-height: 32px;
 }
 
 #creative-text {
+    position: relative;
+    z-index: 1; 
     font-size: 38px;
     margin: 24px 0;
 }
@@ -35,6 +54,12 @@
     }
 }
 
+@media screen and (max-width: 744px) {
+    #lily {
+        display: none;
+    }
+    
+}
 
 
 

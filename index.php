@@ -69,21 +69,23 @@ $stmt->execute();
             </nav>
         </header> 
 
+        <main>
+
           <!-- HERO -->  
-          <section id="hero" class="grid-con">
-            <div class=" hero-text col-span-full m-col-span-6">
+        <section id="hero" class="grid-con">
+            <canvas id="lily"></canvas>
+            <div class="hero-text col-span-full m-col-span-6">
                 <h1>Hi There! <br> I'm Katrina</h1>
                 <h2 id="creative-text" class="creative-text">Creative Motion</h2>
                 <h2>A motion designer and... sometimes a developer. I specialize as an out-of-the box thinker. I like to have fun while I tell your story through motion and bring out the magic in everyone!</h2>
-                
+                <button id="anecdote"><span id="anecdote-tex">🌸 Tell Me an anecdote</span></button>
             </div>  
+            
         </section>
 
-        <button id="anecdote"><span id="anecdote-tex">🌸 Tell Me an anecdote</span></button>
         <div id="speech-bubble" class="hidden"></div>
         <img id="divider" src="images/divider.svg" alt="pink-green gradient divider">
 
-    <main>
     <!-- GALLERY -->
     <section id="gallery" class="grid-con">
     <div id="gallery-cont" class="col-span-full">
