@@ -9,7 +9,7 @@ $stmt = $connection->prepare('SELECT media.filename, media.filetype, projects.na
             WHERE media.id IN (
             SELECT MIN(id) 
             FROM media 
-            WHERE project_id IN (1, 2, 3)
+            WHERE project_id IN (1, 2, 3, 17, 18, 19)
             GROUP BY project_id
     )
 ');
@@ -77,7 +77,7 @@ $stmt->execute();
             <div class="hero-text col-span-full m-col-span-6">
                 <h1>Hi There! <br> I'm Katrina</h1>
                 <h2 id="creative-text" class="creative-text">Creative Motion</h2>
-                <h2>A motion designer and... sometimes a developer. I specialize as an out-of-the box thinker. I like to have fun while I tell your story through motion and bring out the magic in everyone!</h2>
+                <h2>I bring stories to life through motion, crafting visuals that don’t just move—but make you feel. With a mind that sees the world differently, I turn imagination into immersive experiences.</h2>
                 <button id="anecdote"><span id="anecdote-tex">🌸 Tell Me an anecdote</span></button>
             </div>  
             
